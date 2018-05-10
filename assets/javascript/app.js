@@ -1,8 +1,8 @@
 //DYNAMICALLY EMBEDDING MAPS
-$('#addCity').on('click', function(event) {
+$('#add-city-button').on('click', function(event) {
     event.preventDefault();
-    var mapInput = $('#cityInput').val();
-    $('#cityInput').val('');
+    var mapInput = $('#add-city').val();
+    $('#add-city').val('');
     var newFrame = $('<iframe>')
     newFrame.attr({
         src: `https://www.google.com/maps/embed/v1/search?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&q=hotels+in+${mapInput}`,
@@ -11,7 +11,7 @@ $('#addCity').on('click', function(event) {
         frameborder: '0',
         style: 'border:0'
     })
-    $('#frameBox').append(newFrame);
+    $('#frameRow').append(newFrame);
 })
 
 // $.ajax ({
