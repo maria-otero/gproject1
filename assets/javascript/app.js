@@ -2,7 +2,7 @@ var map;
 var infowindow;
 function initMap() {
   var city = {lat: -33.867, lng: 151.195};
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('mapCanvas'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 8
   });
@@ -32,5 +32,18 @@ function createMarker(place) {
   });
 }
 
-var mapInput1 = $('#cityInput1').val();
-
+//CONVERTING CITY INPUTS TO COORDS
+$('#addCity1').on('click', function(event) {
+    var cityLat, cityLng;
+    event.preventDefault();
+    var mapInput = $('#cityInput1').val();
+    $('#cityInput1').val('');
+    $.ajax ({
+        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${mapInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
+        method: 'GET'
+    }).then (function (response) {
+        cityLat = response.results[0].geometry.location.lat;
+        cityLng = response.results[0].geometry.location.lng;
+        
+    })
+})
