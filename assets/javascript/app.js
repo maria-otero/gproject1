@@ -34,4 +34,3 @@ function createMarker(place) {
 
 var mapInput1 = $('#cityInput1').val();
 
-// console.log(https://maps.goo)
