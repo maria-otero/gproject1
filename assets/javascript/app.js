@@ -24,7 +24,12 @@ function generateCard(city) {
     $('#bodyRow').append(newCard);
 }
 
-<<<<<<< HEAD
+
+// google.maps.event.addListener(marker, 'click', function () {
+//     // do something with this marker ...
+//     this.setTitle('I am clicked');
+//  });
+
 // photo api pull function
 
 function callPhoto() {
@@ -37,7 +42,6 @@ var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=4
    
     $("#img-accommodation-1").attr("src", photoQueryURL)
 }
-=======
 
 // var photoReference = ""
 
@@ -55,13 +59,9 @@ var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=4
 
 // // pull photo reference array and put into photoReference query
 
-
-$(".place-name").on("click", function() {
-    console.log(this);
-})
-
-
->>>>>>> d9568ee41e0db67f3b899704bbff3b175bdffc96
+// $(document).on('click', '.place-card', function(){
+//     console.log(this)
+// })
 
 
 // $.ajax ({
