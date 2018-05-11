@@ -14,23 +14,61 @@ $('#add-city-button').on('click', function(event) {
         url: `https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
         method: 'GET'
     }).then (function(response){
-        locLat = response.results[0].geometry.location.lat;
-        locLng = response.results[0].geometry.location.lng;
-        initMap(locLat, locLng);
+        centerLat = response.results[0].geometry.location.lat;
+        centerLng = response.results[0].geometry.location.lng;
+        initMap(centerLat, centerLng);
     })
-
     cardIdx++;
-    
 })
 
-function initMap(myLat, myLng) {
-    var myLatlng = {lat: myLat, lng: myLng}; 
-        var map = new google.maps.Map(document.getElementById('newMap'), {
-            zoom: 10,
-            center: myLatlng
+function initMap(centerLat, centerLng) {
+    var map;
+    var centerLatlng = {lat: centerLat, lng: centerLng}; 
+        map = new google.maps.Map(document.getElementById('newMap'), {
+            zoom: 12,
+            center: centerLatlng
     });
+
     $('#newMap').attr('id','map'+cardIdx)
-}
+
+    $.ajax({
+        url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=1500&keyword=hotel&location=${centerLat},${centerLng}`,
+        method: 'GET'
+    }).then (function(response){
+        var markerArr = [];
+        for (let idx=0; idx<response.results.length; idx++){
+            console.log(response.results[idx])
+            var markerLatLng = {lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng};
+            markerArr[idx] = new google.maps.Marker({
+                position: markerLatLng,
+                map: map,
+                title: response.results[idx].name
+            });
+            markerArr[idx].addListener('click', function() {
+                console.log(`you clicked ${response.results[idx].name}`)
+            });
+        };
+    });
+};
+
+// function placeMarkers(myLat, myLng) {
+//     $.ajax({
+//         url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=1500&keyword=hotel&location=${myLat},${myLng}`,
+//         method: 'GET'
+//     }).then (function(response){
+//         var markerArr = [];
+//         for (let idx=0; idx<response.results.length; idx++){
+//             console.log(response.results[idx])
+//             var markerLatLng = {lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng};
+
+//             markerArr[idx] = new google.maps.Marker({
+//                 position: markerLatLng,
+//                 map: map,
+//                 title: 'A hotel!'
+//               });
+//         }
+//     })
+// }
 
 // Dynamically creating a new card function
 function generateCard(city) {
@@ -42,18 +80,29 @@ function generateCard(city) {
 
 // photo api pull function
 
-function callPhoto() {
-var photoReference = "CmRaAAAA6z2646XkCoeArns1jXNvuSQbezHOHG2mxDgUuE6iJpVBsKfhAtgt1SEaO57FN0i-t9ejtjSglH6naCUBxuUojIMTFTamUOPuC_LoqtOp7qdQkAItyTcesQAjmiQCBvKeEhC3o-5gQ3t6JeUpVRYf1ODzGhTLY_6L1ydiWry4gsMLxVV86nez0Q"
+// google.maps.event.addListener(marker, 'click', function () {
+//     $("#accomodation-name").empty();
+//     $("#accomodation-name").html("object hook data name here");
 
-var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
-  
-    var img = $("<img>");
-    img.attr("src", photoQueryURL);
-   
-    $("#img-accommodation-1").attr("src", photoQueryURL)
-}
+//     $("#hotelPricing").html("object hook data pricing here");
 
+//         for (var i = 0; i < 3; i++) {
 
+//             var photoReference = "object hook data photo references here"
+
+//             var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
+                
+//                 // make new image tag
+//                 var img = $("<img>");
+                
+//                 // give img tag the data to be a real image
+//                 img.attr("src", photoQueryURL);
+            
+//                 // change photo hook for all photo references
+//                 $("#img-accommodation-1").attr("src", photoQueryURL)
+//         }
+
+//     });
 
 // $.ajax ({
 //     url: 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&placeid=ChIJ-ZeDsnLGmoAR238ZdKpqH5I',
