@@ -1,22 +1,47 @@
+var cardIdx = 0;
+
 //DYNAMICALLY EMBEDDING MAPS
 $('#add-city-button').on('click', function(event) {
     event.preventDefault();
+    //FORMATTING USERINPUT
     var userInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
     $('#add-city').val('');
+    //CREATING CARD
     generateCard(userInput);
-    var newFrame = $('<iframe>')
-    newFrame.attr({
-        src: `https://www.google.com/maps/embed/v1/search?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&q=hotels+in+${userInput}`,
-        width: '300em',
-        height: '300em',
-        frameborder: '0',
-        style: 'border:0'
+
+    var locLat, locLng;
+    $.ajax ({
+        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
+        method: 'GET'
+    }).then (function(response){
+        locLat = response.results[0].geometry.location.lat;
+        locLng = response.results[0].geometry.location.lng;
+        initMap(locLat, locLng);
     })
-    $(`#mapDiv${cardIdx}`).append(newFrame);
+
+    
+
+    // var newFrame = $('<iframe>')
+    // newFrame.attr({
+    //     src: `https://www.google.com/maps/embed/v1/search?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&q=hotels+in+${userInput}`,
+    //     width: '300em',
+    //     height: '300em',
+    //     frameborder: '0',
+    //     style: 'border:0'
+    // })
+    // $(`#mapDiv${cardIdx}`).append(newFrame);
     cardIdx++;
+    
 })
 
-var cardIdx = 0;
+function initMap(myLat, myLng) {
+    var myLatlng = {lat: myLat, lng: myLng}; 
+        var map = new google.maps.Map(document.getElementById('newMap'), {
+            zoom: 10,
+            center: myLatlng
+    });
+    $('#newMap').attr('id','map'+cardIdx)
+}
 
 // Dynamically creating a new card function
 function generateCard(city) {
@@ -40,6 +65,7 @@ var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=4
 }
 
 
+
 // $.ajax ({
 //     url: 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&placeid=ChIJ-ZeDsnLGmoAR238ZdKpqH5I',
 //     method: 'GET'
@@ -52,54 +78,4 @@ var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=4
 //     method: 'GET'
 // }).then (function (response) {
 //     console.log(response);
-// })
-
-// var map;
-// var infowindow;
-// function initMap() {
-//   var city = {lat: -33.867, lng: 151.195};
-//   map = new google.maps.Map(document.getElementById('mapCanvas'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 8
-//   });
-
-// infowindow = new google.maps.InfoWindow();
-//   var service = new google.maps.places.PlacesService(map);
-//   service.nearbySearch({
-//     location: city,
-//     radius: 100,
-//     type: ['store']
-//   }, callback);
-// }
-
-// function callback(results, status) {
-//   if (status === google.maps.places.PlacesServiceStatus.OK) {
-//     for (var i = 0; i < results.length; i++) {
-//       createMarker(results[i]);
-//     }
-//   }
-// }
-
-// function createMarker(place) {
-//   var placeLoc = place.geometry.location;
-//   var marker = new google.maps.Marker({
-//     map: map,
-//     position: place.geometry.location
-//   });
-// }
-
-// CONVERTING CITY INPUTS TO COORDS
-// $('#addCity1').on('click', function(event) {
-//     var cityLat, cityLng;
-//     event.preventDefault();
-//     var mapInput = $('#cityInput1').val();
-//     $('#cityInput1').val('');
-//     $.ajax ({
-//         url: `https://maps.googleapis.com/maps/api/geocode/json?address=${mapInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
-//         method: 'GET'
-//     }).then (function (response) {
-//         cityLat = response.results[0].geometry.location.lat;
-//         cityLng = response.results[0].geometry.location.lng;
-        
-//     })
 // })

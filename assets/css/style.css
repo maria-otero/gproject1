@@ -93,3 +93,8 @@ span {
 .card-info-box {
     padding: 25px;
 }
+
+.map {
+    width: 300px;
+    height: 300px;
+}
