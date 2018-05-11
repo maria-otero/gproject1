@@ -20,11 +20,12 @@ var cardIdx = 0;
 
 // Dynamically creating a new card function
 function generateCard(city) {
-    var newCard = $(`<div id="card1" class="card" style="width: 30%"><div class="card-body"><h6 id="accommodation-name" class="card-title">${city}</h6><div id="mapDiv${cardIdx}"></div><p class="card-text">Price: $00.00</p><p class="card-text">Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p><a href="#" class="btn btn-primary">More Info</a><br><br><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100 rounded" src="assets/img/hotel-1.jpeg" alt="First slide"></div><div class="carousel-item"><img id="img-accommodation-2" class="d-block w-100 rounded" src="assets/img/hotel-2.jpeg" alt="Second slide"></div><div class="carousel-item"><img id="img-accommodation-3" class="d-block w-100 rounded" src="assets/img/hotel-3.jpeg" alt="Third slide"></div></div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
+    var newCard = $(`<div id="card1" class="card"><div class="card-body"><h5 id="accommodation-name">${city}</h5><div id="mapDiv${cardIdx}"></div><div class="card-info-box">
+    <p>Price: $00.00</p><p>Rating:</p><button href="#" class="btn btn-outline-dark">More Info</button>
+    </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div><div class="carousel-item"><img id="img-accommodation-2" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div><div class="carousel-item"><img id="img-accommodation-3" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div></div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
     $('#bodyRow').append(newCard);
 }
 
-<<<<<<< HEAD
 // photo api pull function
 
 function callPhoto() {
@@ -37,31 +38,6 @@ var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=4
    
     $("#img-accommodation-1").attr("src", photoQueryURL)
 }
-=======
-
-// var photoReference = ""
-
-// var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
-  
-//     var img = $("<img>");
-//     img.attr("src", photoQueryURL);
-
-//     // change photo hook for all new photo references
-//     $("#img-accommodation-1").attr("src", photoQueryURL)
-
-// // Listner for click from user on marker inside google map embed
-
-// // Take name from specific marker (unique name) and search google places for photo reference
-
-// // pull photo reference array and put into photoReference query
-
-
-$(".place-name").on("click", function() {
-    console.log(this);
-})
-
-
->>>>>>> d9568ee41e0db67f3b899704bbff3b175bdffc96
 
 
 // $.ajax ({

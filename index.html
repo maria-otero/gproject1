@@ -17,7 +17,7 @@
     <!-- Font Awsome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,700|Libre+Baskerville" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,00|Libre+Baskerville" rel="stylesheet">
 </head>
 
 <body>
@@ -29,44 +29,40 @@
     </header>
 
     <!-- Nav Bar - Destination input - Budget input - Star raitin input -->
-    <nav id="navbar-info" class="navbar navbar-light bg-light">
+    <nav id="navbar-info" class="navbar">
         <form class="form-inline">
+            <!-- Choce a place -->
             <input id="add-city" class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search">
-            <button id="add-city-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
-            <label for="exampleFormControlSelect1"> Min price: </label>
+            <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
+            <!-- Define price -->
+            <label for="exampleFormControlSelect1"> Min price</label>
             <select class="form-control" id="exampleFormControlSelect1">
                 <option>$10.00</option>
                 <option>$20.00</option>
                 <option>$30.00</option>
             </select>
-            <label for="exampleFormControlSelect1"> Max price: </label>
+            <label for="exampleFormControlSelect1"> Max price</label>
             <select class="form-control" id="exampleFormControlSelect1">
                 <option>$40.00</option>
                 <option>$50.00</option>
                 <option>$60.00</option>
             </select>
-            <div class="form-check form-check-inline">
-                <label class="form-check-label" for="inlineRadio1"><i class="fas fa-star"></i></label>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            </div>
-            <div class="form-check form-check-inline">
-                <label class="form-check-label" for="inlineRadio2"> <i class="fas fa-star"></i></label>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            </div>
-                <label class="form-check-label" for="inlineRadio3"> <i class="fas fa-star"></i></label>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            </div>
-            </div>
-                <label class="form-check-label" for="inlineRadio4"> <i class="fas fa-star"></i></label>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-            </div>
+            <!-- stars rating -->
+            <label>Star Rating</label>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star notChecked"></span>
+            <span class="fa fa-star notChecked"></span>
         </form>
     </nav>
 
 
     <!-- Body -->
-    <div class="row d-flex justify-content-between">
-        
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-between" id="bodyRow">
+            
+        </div>
     </div>
 
 

@@ -10,6 +10,7 @@ body {
     font-family: 'Gothic A1', sans-serif;
     font-weight: 400;
     font-size: 16px;
+    background-size: cover;
 
 }
 
@@ -25,6 +26,18 @@ h1 {
 
 h2 {
     font-size: 2.2rem;
+}
+
+h5 {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 4px;
+    margin-bottom: 0px;
 }
 
 label {
@@ -43,6 +56,13 @@ nav {
     font-family: 'Libre Baskerville', serif;
 }
 
+span {
+    margin-right: 5px;
+}
+
+.container {
+    margin: 0px;
+}
 /* RATTIN STARS */
 .checked {
     color: orange;
