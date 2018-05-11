@@ -49,20 +49,19 @@ label {
 }
 
 nav {
-    border: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 100%;
+    width: 1281px;
     background-color: rgba(255, 255, 255, 0.6);
     font-family: 'Libre Baskerville', serif;
+    margin-bottom: 1%;
+    
 }
 
 span {
     margin-right: 5px;
 }
 
-.container {
-    margin: 0px;
-}
+
 /* RATTIN STARS */
 .checked {
     color: orange;
@@ -76,22 +75,24 @@ span {
 }
 
 .card {
-    margin-top: 15px;
-    width: 32%;
+    /* margin: 15px 8px 15px 8px; */
     border-radius: 0px;
+    width: 100%;
     border: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: none;
-    background-color: rgba(255, 255, 255, 0.6)
+    background-color: rgba(255, 255, 255, 0.6);
     /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+    padding: 12px;
+    overflow: none;
 }
 
-.card-body {
-    padding: 0px;
-}
 
 .card-info-box {
     padding: 25px;
+}
+
+.col-md-4 {
+    padding-left: 0px;
 }
 
 .map {
