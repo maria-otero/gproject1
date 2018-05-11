@@ -23,6 +23,14 @@ function generateCard(city) {
     $('#bodyRow').append(newCard);
 }
 
+<<<<<<< Updated upstream
+=======
+// google.maps.event.addListener(marker, 'click', function () {
+//     // do something with this marker ...
+//     this.setTitle('I am clicked');
+//  });
+
+>>>>>>> Stashed changes
 
 // var photoReference = ""
 
@@ -40,10 +48,9 @@ function generateCard(city) {
 
 // // pull photo reference array and put into photoReference query
 
-
-$(".place-name").on("click", function() {
-    console.log(this);
-})
+// $(document).on('click', '.place-card', function(){
+//     console.log(this)
+// })
 
 
 
