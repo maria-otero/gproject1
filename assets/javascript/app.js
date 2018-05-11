@@ -31,12 +31,22 @@ function initMap(myLat, myLng) {
     });
     $('#newMap').attr('id','map'+cardIdx)
 }
-
 // Dynamically creating a new card function
 function generateCard(city) {
-    var newCard = $(`<div id="card1" class="card"><div class="card-body"><h5 id="accommodation-name">${city}</h5><div class='map' id="newMap"></div><div class="card-info-box">
+    var newCard = $(`<div id="card1" class="col-md-4"><div class="card"><h5 id="accommodation-name">${city}</h5><div class='map' id="newMap"></div><div class="card-info-box">
     <p>Price: $00.00</p><p>Rating:</p><button href="#" class="btn btn-outline-dark">More Info</button>
     </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div><div class="carousel-item"><img id="img-accommodation-2" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div><div class="carousel-item"><img id="img-accommodation-3" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div></div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
+    
+    //if(counter === 1 || counter === 4 ){
+        //newCard.addClass("justify-content-start")
+        //console.log('if 1 and 4 working');
+    //} else if (counter === 2 || counter === 5) {
+      //  newCard.addClass("justify-content-center")
+        //console.log('else if 2 and 5 working');
+    //} else if ( counter === 3 || counter === 6) {
+      //  newCard.addClass("d-flex justify-content-end")
+        //console.log('else if 3 and 6 working');
+    //}
     $('#bodyRow').append(newCard);
 }
 
