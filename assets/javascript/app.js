@@ -7,8 +7,8 @@ $('#add-city-button').on('click', function(event) {
     var newFrame = $('<iframe>')
     newFrame.attr({
         src: `https://www.google.com/maps/embed/v1/search?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&q=hotels+in+${userInput}`,
-        width: '300px',
-        height: '300px',
+        width: '300em',
+        height: '300em',
         frameborder: '0',
         style: 'border:0'
     })
@@ -18,10 +18,51 @@ $('#add-city-button').on('click', function(event) {
 
 var cardIdx = 0;
 
+// Dynamically creating a new card function
 function generateCard(city) {
     var newCard = $(`<div id="card${cardIdx}" class="card" style="width: 30%"><div class="card-body"><h6 id="accommodation-name" class="card-title">${city}</h6><div id="mapDiv${cardIdx}"></div><p class="card-text">Price: $00.00</p><p class="card-text">Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p><a href="#" class="btn btn-primary">More Info</a><br><br><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100 rounded" src="assets/img/hotel-1.jpeg" alt="First slide"></div><div class="carousel-item"><img id="img-accommodation-2" class="d-block w-100 rounded" src="assets/img/hotel-2.jpeg" alt="Second slide"></div><div class="carousel-item"><img id="img-accommodation-3" class="d-block w-100 rounded" src="assets/img/hotel-3.jpeg" alt="Third slide"></div></div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
     $('#bodyRow').append(newCard);
 }
+
+<<<<<<< HEAD
+// photo api pull function
+
+function callPhoto() {
+var photoReference = "CmRaAAAA6z2646XkCoeArns1jXNvuSQbezHOHG2mxDgUuE6iJpVBsKfhAtgt1SEaO57FN0i-t9ejtjSglH6naCUBxuUojIMTFTamUOPuC_LoqtOp7qdQkAItyTcesQAjmiQCBvKeEhC3o-5gQ3t6JeUpVRYf1ODzGhTLY_6L1ydiWry4gsMLxVV86nez0Q"
+
+var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
+  
+    var img = $("<img>");
+    img.attr("src", photoQueryURL);
+   
+    $("#img-accommodation-1").attr("src", photoQueryURL)
+}
+=======
+
+// var photoReference = ""
+
+// var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
+  
+//     var img = $("<img>");
+//     img.attr("src", photoQueryURL);
+
+//     // change photo hook for all new photo references
+//     $("#img-accommodation-1").attr("src", photoQueryURL)
+
+// // Listner for click from user on marker inside google map embed
+
+// // Take name from specific marker (unique name) and search google places for photo reference
+
+// // pull photo reference array and put into photoReference query
+
+
+$(".place-name").on("click", function() {
+    console.log(this);
+})
+
+
+>>>>>>> d9568ee41e0db67f3b899704bbff3b175bdffc96
+
 
 // $.ajax ({
 //     url: 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&placeid=ChIJ-ZeDsnLGmoAR238ZdKpqH5I',
