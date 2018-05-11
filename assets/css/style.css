@@ -35,12 +35,6 @@ label {
     font-family: 'Libre Baskerville', serif;
 }
 
-
-
-.form-control {
-    font-size: 13px;
-}
-
 nav {
     border: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -48,7 +42,6 @@ nav {
     background-color: rgba(255, 255, 255, 0.6);
     font-family: 'Libre Baskerville', serif;
 }
-
 
 /* RATTIN STARS */
 .checked {
@@ -58,6 +51,9 @@ nav {
     color: orange;
 }
 
+.form-control {
+    font-size: 13px;
+}
 
 .card {
     margin-top: 15px;
