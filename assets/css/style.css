@@ -1,0 +1,82 @@
+
+header {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+body {
+    background: #2a3138 url("../img/2.png") no-repeat;
+    margin: 2% 5% 0% 5%;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+    color: rgb(39, 39, 39);
+    
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+label {
+    font-family: 'Gothic A1', sans-serif;
+    /* text-transform: uppercase; */
+    padding-right: 10px;
+    padding-left: 35px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+
+
+.form-control {
+    font-size: 13px;
+}
+
+nav {
+    border: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-family: 'Libre Baskerville', serif;
+}
+
+
+/* RATTIN STARS */
+.checked {
+    color: orange;
+}
+.notChecked:hover {
+    color: orange;
+}
+
+
+.card {
+    margin-top: 15px;
+    width: 32%;
+    border-radius: 0px;
+    border: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: none;
+    background-color: rgba(255, 255, 255, 0.6)
+    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.card-info-box {
+    padding: 25px;
+}
+
+
+
