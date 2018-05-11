@@ -23,6 +23,31 @@ function generateCard(city) {
     $('#bodyRow').append(newCard);
 }
 
+
+// var photoReference = ""
+
+// var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
+  
+//     var img = $("<img>");
+//     img.attr("src", photoQueryURL);
+
+//     // change photo hook for all new photo references
+//     $("#img-accommodation-1").attr("src", photoQueryURL)
+
+// // Listner for click from user on marker inside google map embed
+
+// // Take name from specific marker (unique name) and search google places for photo reference
+
+// // pull photo reference array and put into photoReference query
+
+
+$(".place-name").on("click", function() {
+    console.log(this);
+})
+
+
+
+
 // $.ajax ({
 //     url: 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&placeid=ChIJ-ZeDsnLGmoAR238ZdKpqH5I',
 //     method: 'GET'
