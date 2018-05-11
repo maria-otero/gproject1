@@ -19,17 +19,6 @@ $('#add-city-button').on('click', function(event) {
         initMap(locLat, locLng);
     })
 
-    
-
-    // var newFrame = $('<iframe>')
-    // newFrame.attr({
-    //     src: `https://www.google.com/maps/embed/v1/search?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&q=hotels+in+${userInput}`,
-    //     width: '300em',
-    //     height: '300em',
-    //     frameborder: '0',
-    //     style: 'border:0'
-    // })
-    // $(`#mapDiv${cardIdx}`).append(newFrame);
     cardIdx++;
     
 })
@@ -45,7 +34,7 @@ function initMap(myLat, myLng) {
 
 // Dynamically creating a new card function
 function generateCard(city) {
-    var newCard = $(`<div id="card1" class="card"><div class="card-body"><h5 id="accommodation-name">${city}</h5><div id="mapDiv${cardIdx}"></div><div class="card-info-box">
+    var newCard = $(`<div id="card1" class="card"><div class="card-body"><h5 id="accommodation-name">${city}</h5><div class='map' id="newMap"></div><div class="card-info-box">
     <p>Price: $00.00</p><p>Rating:</p><button href="#" class="btn btn-outline-dark">More Info</button>
     </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div><div class="carousel-item"><img id="img-accommodation-2" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div><div class="carousel-item"><img id="img-accommodation-3" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div></div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
     $('#bodyRow').append(newCard);
