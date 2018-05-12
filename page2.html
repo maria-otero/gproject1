@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,00|Libre+Baskerville" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -54,30 +56,92 @@
     </nav>
 
 
-    <div class="container col-12 col-sm-12">
-        <div id="carouselExampleControls0" class="carousel slide col-6 col-sm-6" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
-                <div class="carousel-item "><img id="img-accommodation-2" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div>
-                <div class="carousel-item "><img id="img-accommodation-3" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="carouselExampleControls0" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
+                        <div class="carousel-item "><img id="img-accommodation-2" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div>
+                        <div class="carousel-item "><img id="img-accommodation-3" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls0" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+                    <a class="carousel-control-next" href="#carouselExampleControls0" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls0" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
-            <a class="carousel-control-next" href="#carouselExampleControls0" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
-        </div>
-    </div>
 
 
-    <!-- Body -->
+            <div class="col-md-6">
+                <div class="card page2-card">
+                    <h6 class="card-header ">Weather</h6>
+                    <div class="card-body">
+                        <div class="weather-box">
+                            <div class="search-field">
+                                <input type="text" id="city" placeholder="Enter City For Weather...">
+                                <button id="submitWeather" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </div>
+                            <div id="current-weather-box">
+                                <div id="columnOne">
+                                    <!-- will show tempeture number -->
+                                    <div id="showTemp"></div>
+                                    <!-- will show clear, cloudy, etc  -->
+                                    <div id="showMain"></div>
+                                </div>
+                                <div id="columnTwo">
+                                    <span class="deg"></span>
+                                </div>
+                                <div id="columnThree">
+                                    <span class="f"></span>
+                                </div>
+                                <div id="forecast-section">
+                                    <div class="day-name"></div>
+                                    <div id="iconOne"></div>
+                                    <div id="dayOneMax"></div>
+                                    <div id="dayOneMin"></div>
+                                    <hr>
+                                    <div class="day-name"></div>
+                                    <div id="iconTwo"></div>
+                                    <div id="dayTwoMax"></div>
+                                    <div id="dayTwoMin"></div>
+                                    <hr>
+                                    <div class="day-name"></div>
+                                    <div id="iconThree"></div>
+                                    <div id="dayThreeMax"></div>
+                                    <div id="dayThreeMin"></div>
+                                    <hr>
+                                    <div class="day-name"></div>
+                                    <div id="iconFour"></div>
+                                    <div id="dayFourMax"></div>
+                                    <div id="dayFourMin"></div>
+                                    <hr>
+                                    <div class="day-name"></div>
+                                    <div id="iconFive"></div>
+                                    <div id="dayFiveMax"></div>
+                                    <div id="dayFiveMin"></div>
 
-    <!-- <div class="container-fluid">
-        <div class="row d-flex justify-content-between" id="bodyRow">
-        </div>
-    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo">
-    </script>
-    <script src='assets/javascript/app.js'></script>
+
+
+
+
+
+
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo"></script>
+            <script src='assets/javascript/app.js'></script>
+
 
 </body>
 
