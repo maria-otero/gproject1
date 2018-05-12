@@ -37,7 +37,6 @@ function initMap(centerLat, centerLng) {
     }).then(function(response) {
         var markerArr = [];
         for (let idx=0; idx<response.results.length; idx++){
-            // console.log(response.results[idx])
             var markerLatLng = {lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng};
 
             markerArr[idx] = new google.maps.Marker({
@@ -47,30 +46,21 @@ function initMap(centerLat, centerLng) {
                 cardCreationIdx: cardIdx-1,
                 placeId: response.results[idx].place_id
             });
-            var cardDetailIdx = cardIdx;
             markerArr[idx].addListener('click', function() {
                 $(`#accommodation-name${this.cardCreationIdx}`).text(response.results[idx].name);
                 $(`#rating-id${this.cardCreationIdx}`).text(response.results[idx].rating);
-                var photoUrlArr = [];
+                var photoDetailIdx = this.cardCreationIdx;
                 $.ajax({
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
                 }).then (function(snapshot){
-                    // console.log(snapshot.result)
-                    for (var photoPullIdx = 0; photoPullIdx < 10; photoPullIdx++) {
-                        var photoReference = snapshot.result.photos[photoPullIdx].photo_reference;
+                    for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
+                        var photoReference = snapshot.result.photos[photoIdx].photo_reference;
                         var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
-                            photoUrlArr[photoPullIdx] = photoQueryURL;
-                    }
+                        $(`#img-accommodation-${photoIdx}-${photoDetailIdx}`).attr("src", photoQueryURL);
+                    };
                 })
-                console.log(photoUrlArr)
-                for (var photoPushIdx=0; photoPushIdx<photoUrlArr.length; photoPushIdx++) {
-                    var img = $("<img>");
-                    img.attr("src", photoQueryURL);
-                    $(`#img-accommodation-${photoPushIdx}-${this.cardCreationIdx}`).attr("src", photoQueryURL)
-                    console.log(photoPushIdx)
-                    console.log(this.cardCreationIdx)
-                }
+
             });
         };
     });
