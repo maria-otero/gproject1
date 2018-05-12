@@ -164,7 +164,7 @@ function loadWeather(searchString) {
     var requestString = 'https://api.openweathermap.org/data/2.5/weather?q=' +
         searchString +
         "&units=imperial&APPID=001b0f58045147663b1ea518d34d88b4";
-    //console.log(requestString) , comes from city, enter city placeholder
+    //console.log(requestString) enter city placeholder
     $.getJSON(requestString, processAPIResults);
 }
 
@@ -179,6 +179,8 @@ function processAPIResults(data) {
         $('.deg').html("&deg");
         $('.f').html("F");
         $('#showMain').html(data.weather[0].main);
+        $('#humidity').html(data.weather[0].main);
+        $('#name').html(data.weather[0].main);
         console.log(data.weather.main);
     } else if (data.name == undefined) {
         console.log(data.name);
@@ -221,23 +223,23 @@ function processForecastResults(data) {
     //day 1 weather icon
     var iconCodeOne = data.list[1].weather[0].icon;
     var iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
-    $("#iconOne").html("<img src='" + iconUrlOne + "'>");
+    $("#iconOne").html("<img src='" + iconUrlOne + "'>" + data.list[1].weather[0].main);
     //day 2 weather icon
     var iconCodeTwo = data.list[2].weather[0].icon;
     var iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
-    $("#iconTwo").html("<img src='" + iconUrlTwo + "'>");
+    $("#iconTwo").html("<img src='" + iconUrlTwo + "'>" + data.list[1].weather[0].main);
     //day 3 weather icon
     var iconCodeThree = data.list[3].weather[0].icon;
     var iconUrlThree = "http://openweathermap.org/img/w/" + iconCodeThree + ".png";
-    $("#iconThree").html("<img src='" + iconUrlThree + "'>");
+    $("#iconThree").html("<img src='" + iconUrlThree + "'>" + data.list[1].weather[0].main);
     //day 4 weather icon
     var iconCodeFour = data.list[4].weather[0].icon;
     var iconUrlFour = "http://openweathermap.org/img/w/" + iconCodeFour + ".png";
-    $("#iconFour").html("<img src='" + iconUrlFour + "'>");
+    $("#iconFour").html("<img src='" + iconUrlFour + "'>" + data.list[1].weather[0].main);
     //day 5 weather icon
     var iconCodeFive = data.list[5].weather[0].icon;
     var iconUrlFive = "http://openweathermap.org/img/w/" + iconCodeFive + ".png";
-    $("#iconFive").html("<img src='" + iconUrlFive + "'>");
+    $("#iconFive").html("<img src='" + iconUrlFive + "'>" + data.list[1].weather[0].main);
 
 
     //forecast temp highs

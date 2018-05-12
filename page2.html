@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- CSS page -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
     <!-- Ajax call to Google APIs -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Font Awsome -->
@@ -62,9 +62,9 @@
 
 
 
-    <div class="container">
+    <div class="container col-12 col-md-12">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div id="carouselExampleControls0" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
@@ -82,10 +82,12 @@
                     <h6 class="card-header ">Weather</h6>
                     <div class="card-body">
                         <div class="weather-box">
+                            <!-- search box -->
                             <div class="search-field">
                                 <input type="text" id="city" placeholder="Enter City For Weather...">
                                 <button id="submitWeather" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
+
                             <div class="current-weather-box">
                                 <!-- will show tempeture number -->
                                 <div id="showTemp"></div>
@@ -127,6 +129,28 @@
             </div>
         </div>
 
+
+        <div class="container col-12 col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card hotelInfo">
+                        <div class="card-body">
+                            <h4>Hilton - California</h4>
+                            <p>Price: $<span class="hotelCost"></span></p>
+                            <p class="hotelParagraphInfo">Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for
+                                mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and
+                                letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually
+                                has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are</p>
+                            <p>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, consequatur!
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
 
