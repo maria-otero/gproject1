@@ -30,6 +30,7 @@
     <nav id="navbar-info" class="navbar">
         <form class="form-inline">
             <!-- Choce a place -->
+
             <input id="add-city" class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search">
             <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
             <!-- Define price -->
@@ -85,51 +86,46 @@
                                 <input type="text" id="city" placeholder="Enter City For Weather...">
                                 <button id="submitWeather" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
-                            <div id="current-weather-box">
-                                <div id="columnOne">
-                                    <!-- will show tempeture number -->
-                                    <div id="showTemp"></div>
-                                    <!-- will show clear, cloudy, etc  -->
-                                    <div id="showMain"></div>
-                                </div>
-                                <div id="columnTwo">
-                                    <span class="deg"></span>
-                                </div>
-                                <div id="columnThree">
-                                    <span class="f"></span>
-                                </div>
-                                <div id="forecast-section">
-                                    <div class="day-name"></div>
-                                    <div id="iconOne"></div>
-                                    <div id="dayOneMax"></div>
-                                    <div id="dayOneMin"></div>
-                                    <hr>
-                                    <div class="day-name"></div>
-                                    <div id="iconTwo"></div>
-                                    <div id="dayTwoMax"></div>
-                                    <div id="dayTwoMin"></div>
-                                    <hr>
-                                    <div class="day-name"></div>
-                                    <div id="iconThree"></div>
-                                    <div id="dayThreeMax"></div>
-                                    <div id="dayThreeMin"></div>
-                                    <hr>
-                                    <div class="day-name"></div>
-                                    <div id="iconFour"></div>
-                                    <div id="dayFourMax"></div>
-                                    <div id="dayFourMin"></div>
-                                    <hr>
-                                    <div class="day-name"></div>
-                                    <div id="iconFive"></div>
-                                    <div id="dayFiveMax"></div>
-                                    <div id="dayFiveMin"></div>
+                            <div class="current-weather-box">
+                                <!-- will show tempeture number -->
+                                <div id="showTemp"></div>
+                                <!-- will show clear, cloudy, etc -->
+                                <div id="showMain"></div>
+                                <span class="deg"></span>
+                                <span class="f"></span>
+                            </div>
+                            <div id="forecast-section">
+                                <div class="day-name"></div>
+                                <div id="iconOne"></div>
+                                <div id="dayOneMax"></div>
+                                <div id="dayOneMin"></div>
+                                <hr>
+                                <div class="day-name"></div>
+                                <div id="iconTwo"></div>
+                                <div id="dayTwoMax"></div>
+                                <div id="dayTwoMin"></div>
+                                <hr>
+                                <div class="day-name"></div>
+                                <div id="iconThree"></div>
+                                <div id="dayThreeMax"></div>
+                                <div id="dayThreeMin"></div>
+                                <hr>
+                                <div class="day-name"></div>
+                                <div id="iconFour"></div>
+                                <div id="dayFourMax"></div>
+                                <div id="dayFourMin"></div>
+                                <hr>
+                                <div class="day-name"></div>
+                                <div id="iconFive"></div>
+                                <div id="dayFiveMax"></div>
+                                <div id="dayFiveMin"></div>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
@@ -139,8 +135,8 @@
 
 
 
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo"></script>
-            <script src='assets/javascript/app.js'></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo"></script>
+        <script src='assets/javascript/app.js'></script>
 
 
 </body>

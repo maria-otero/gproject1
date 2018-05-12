@@ -219,6 +219,26 @@ function processForecastResults(data) {
 
     // $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
     //day 1 weather icon
+    var iconCodeOne = data.list[1].weather[0].icon;
+    var iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
+    $("#iconOne").html("<img src='" + iconUrlOne + "'>");
+    //day 2 weather icon
+    var iconCodeTwo = data.list[2].weather[0].icon;
+    var iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
+    $("#iconTwo").html("<img src='" + iconUrlTwo + "'>");
+    //day 3 weather icon
+    var iconCodeThree = data.list[3].weather[0].icon;
+    var iconUrlThree = "http://openweathermap.org/img/w/" + iconCodeThree + ".png";
+    $("#iconThree").html("<img src='" + iconUrlThree + "'>");
+    //day 4 weather icon
+    var iconCodeFour = data.list[4].weather[0].icon;
+    var iconUrlFour = "http://openweathermap.org/img/w/" + iconCodeFour + ".png";
+    $("#iconFour").html("<img src='" + iconUrlFour + "'>");
+    //day 5 weather icon
+    var iconCodeFive = data.list[5].weather[0].icon;
+    var iconUrlFive = "http://openweathermap.org/img/w/" + iconCodeFive + ".png";
+    $("#iconFive").html("<img src='" + iconUrlFive + "'>");
+
 
     //forecast temp highs
     $('#dayOneMax').html(Math.round(data.list[1].temp.max));

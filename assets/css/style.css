@@ -113,7 +113,6 @@
     /* Centers all objects in container */
     
     .row {
-        height: 0;
         text-align: center;
     }
     /* Displays information for next 5 days */
@@ -136,11 +135,6 @@
     #dayFiveMin {
         display: inline-table;
         height: 50px;
-    }
-    
-    #current-weather-box {
-        height: 155px;
-        padding: 0%;
     }
     
     #showTemp {
