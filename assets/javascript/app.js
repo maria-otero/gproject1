@@ -42,13 +42,34 @@ function initMap(centerLat, centerLng) {
             markerArr[idx] = new google.maps.Marker({
                 position: markerLatLng,
                 map: map,
-                title: response.results[idx].name
+                title: response.results[idx].name,
+                cardCreationIdx: cardIdx-1,
+                placeId: response.results[idx].place_id
             });
             var cardDetailIdx = cardIdx;
             markerArr[idx].addListener('click', function() {
-                // console.log(`you clicked ${response.results[idx].name}`)
-                console.log(cardDetailIdx)
-                // $(`#accommodation-name${cardIdx-1}`).text(response.results[idx].name)
+                $(`#accommodation-name${this.cardCreationIdx}`).text(response.results[idx].name);
+                $(`#rating-id${this.cardCreationIdx}`).text(response.results[idx].rating);
+                var photoUrlArr = [];
+                $.ajax({
+                    method: 'GET',
+                    url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
+                }).then (function(snapshot){
+                    // console.log(snapshot.result)
+                    for (var photoPullIdx = 0; photoPullIdx < 10; photoPullIdx++) {
+                        var photoReference = snapshot.result.photos[photoPullIdx].photo_reference;
+                        var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
+                            photoUrlArr[photoPullIdx] = photoQueryURL;
+                    }
+                })
+                console.log(photoUrlArr)
+                for (var photoPushIdx=0; photoPushIdx<photoUrlArr.length; photoPushIdx++) {
+                    var img = $("<img>");
+                    img.attr("src", photoQueryURL);
+                    $(`#img-accommodation-${photoPushIdx}-${this.cardCreationIdx}`).attr("src", photoQueryURL)
+                    console.log(photoPushIdx)
+                    console.log(this.cardCreationIdx)
+                }
             });
         };
     });
@@ -59,37 +80,23 @@ function generateCard(city) {
     var newCard = $(`<div id="card1" class="col-md-4"><div class="card"><h5 id="city-name">${city}</h5><div class='map' id="newMap"></div><div class="card-info-box">
     <h4 id="accommodation-name${cardIdx}"></h4>
     <p>Price <span id="price-id${cardIdx}"></span> </p><p>Rating <span id="rating-id${cardIdx}"></span></p><button href="#" class="btn btn-outline-dark">More Info</button>
-    </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img id="img-accommodation-1" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div><div class="carousel-item"><img id="img-accommodation-2" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div><div class="carousel-item"><img id="img-accommodation-3" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div></div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
+    </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner">
+    <div class="carousel-item active"><img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    </div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
     
 
     $('#bodyRow').append(newCard);
 }
 
-// photo api pull function
-
-// google.maps.event.addListener(marker, 'click', function () {
-//     $("#accomodation-name").empty();
-//     $("#accomodation-name").html("object hook data name here");
-
-//     $("#hotelPricing").html("object hook data pricing here");
-
-//         for (var i = 0; i < 3; i++) {
-
-//             var photoReference = "object hook data photo references here"
-
-//             var photoQueryURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=" + photoReference + "&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo";
-                
-//                 // make new image tag
-//                 var img = $("<img>");
-                
-//                 // give img tag the data to be a real image
-//                 img.attr("src", photoQueryURL);
-            
-//                 // change photo hook for all photo references
-//                 $("#img-accommodation-1").attr("src", photoQueryURL)
-//         }
-
-//     });
 
 // $.ajax ({
 //     url: 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&placeid=ChIJ-ZeDsnLGmoAR238ZdKpqH5I',
