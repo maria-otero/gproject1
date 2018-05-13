@@ -109,6 +109,10 @@
     .card-body {
         padding-top: 0%;
     }
+    
+    .hotelInfo {
+        margin-top: 15px;
+    }
     /* Tempeture, symbol and F for fahrenheit */
     /* Centers all objects in container */
     
