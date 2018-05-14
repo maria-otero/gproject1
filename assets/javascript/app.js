@@ -32,13 +32,10 @@ function initMap(centerLat, centerLng) {
     $('#newMap').attr('id', 'map' + cardIdx)
 
     $.ajax({
-        url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=2500&keyword=restaurant&location=${centerLat},${centerLng}`,
+        url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=1500&keyword=hotel&location=${centerLat},${centerLng}`,
         method: 'GET'
     }).then(function(response) {
         var markerArr = [];
-
-        for (let idx = 0; idx < response.results.length; idx++) {
-            var markerLatLng = { lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng };
         for (let idx=0; idx<response.results.length; idx++){
             var markerLatLng = {lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng};
 
@@ -46,11 +43,7 @@ function initMap(centerLat, centerLng) {
                 position: markerLatLng,
                 map: map,
                 title: response.results[idx].name,
-
-                cardCreationIdx: cardIdx - 1,
-
                 cardCreationIdx: cardIdx-1,
-
                 placeId: response.results[idx].place_id
             });
             markerArr[idx].addListener('click', function() {
@@ -60,9 +53,6 @@ function initMap(centerLat, centerLng) {
                 $.ajax({
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
-
-                }).then(function(snapshot) {
-
                 }).then (function(snapshot){
                     for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
                         var photoReference = snapshot.result.photos[photoIdx].photo_reference;
@@ -70,6 +60,7 @@ function initMap(centerLat, centerLng) {
                         $(`#img-accommodation-${photoIdx}-${photoDetailIdx}`).attr("src", photoQueryURL);
                     };
                 });
+
             });
         };
     });
@@ -91,34 +82,34 @@ function generateCard(city) {
             <div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide">
+                        <img id="img-accommodation-0-${cardIdx}" class="d-block w-100" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide">
+                        <img id="img-accommodation-1-${cardIdx}" class="d-block w-100" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-2-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-3-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-4-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-5-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-6-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-7-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-8-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                        <img id="img-accommodation-9-${cardIdx}" class="d-block w-100" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev">
@@ -135,24 +126,6 @@ function generateCard(city) {
 
     $('#bodyRow').append(newCard);
 }
-
-
-
-// $.ajax ({
-//     url: 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&placeid=ChIJ-ZeDsnLGmoAR238ZdKpqH5I',
-//     method: 'GET'
-// }).then(function(response){
-//     console.log(response)
-// })
-
-// $.ajax ({
-//     url: `https://maps.googleapis.com/maps/api/geocode/json?address=sacramento&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
-//     method: 'GET'
-// }).then (function (response) {
-//     console.log(response);
-// })
-
-
 
 
 
