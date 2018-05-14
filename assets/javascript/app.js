@@ -4,6 +4,7 @@ var cityInput, activityInput, distanceInput, starInput;
 //DYNAMICALLY EMBEDDING MAPS
 $('#add-city-button').on('click', function(event) {
     event.preventDefault();
+    $("header").slideUp(400);
     //FORMATTING USERINPUT
     cityInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
     // $('#add-city').val('');
