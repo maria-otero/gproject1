@@ -36,14 +36,21 @@ function initMap(centerLat, centerLng) {
         method: 'GET'
     }).then(function(response) {
         var markerArr = [];
+
         for (let idx = 0; idx < response.results.length; idx++) {
             var markerLatLng = { lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng };
+        for (let idx=0; idx<response.results.length; idx++){
+            var markerLatLng = {lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng};
 
             markerArr[idx] = new google.maps.Marker({
                 position: markerLatLng,
                 map: map,
                 title: response.results[idx].name,
+
                 cardCreationIdx: cardIdx - 1,
+
+                cardCreationIdx: cardIdx-1,
+
                 placeId: response.results[idx].place_id
             });
             markerArr[idx].addListener('click', function() {
@@ -53,7 +60,11 @@ function initMap(centerLat, centerLng) {
                 $.ajax({
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
+
                 }).then(function(snapshot) {
+
+                }).then (function(snapshot){
+
                     for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
                         var photoReference = snapshot.result.photos[photoIdx].photo_reference;
                         var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
@@ -72,6 +83,7 @@ function generateCard(city) {
     <h4 id="accommodation-name${cardIdx}"></h4>
     <p>Price <span id="price-id${cardIdx}"></span> </p><p>Rating <span id="rating-id${cardIdx}"></span></p><button href="#" class="btn btn-outline-dark">More Info</button>
 
+
     </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner">
     <div class="carousel-item active"><img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
     <div class="carousel-item"><img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div>
@@ -85,6 +97,20 @@ function generateCard(city) {
     <div class="carousel-item"><img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
     </div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
 
+
+    </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner">
+    <div class="carousel-item active"><img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    <div class="carousel-item"><img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
+    </div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
+   
 
     $('#bodyRow').append(newCard);
 }
