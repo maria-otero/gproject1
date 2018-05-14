@@ -149,17 +149,13 @@ $("#city").keyup(function(hitKey) {
 
 
 
-
-
 function getWeather() {
     var inputString = document.getElementById('city').value;
     loadWeather(inputString);
 }
 
 // function to call the API with the city in the input field
-
 // API Key 36e67cbc7819b260cde6008d38c27bdf
-
 function loadWeather(searchString) {
     var requestString = 'https://api.openweathermap.org/data/2.5/weather?q=' +
         searchString +
@@ -172,16 +168,18 @@ function loadWeather(searchString) {
 
 function processAPIResults(data) {
     if (data.name !== undefined) {
+
+        // This part of the function shows Today's data in the top      
         // to round the temp to a whole number and show the rest of
         // of the weather info in the current weather section
-        var roundedTemp = Math.round(data.main.temp);
-        $('#showTemp').html(roundedTemp);
+        // var roundedTemp = Math.round(data.main.temp);
+        // $('#showTemp').html(roundedTemp);
         $('.deg').html("&deg");
         $('.f').html("F");
-        $('#showMain').html(data.weather[0].main);
-        $('#humidity').html(data.weather[0].main);
-        $('#name').html(data.weather[0].main);
-        console.log(data.weather.main);
+        // $('#showMain').html(data.weather[0].main);
+        // $('#humidity').html(data.weather[0].main);
+        // $('#name').html(data.weather[0].main);
+        // console.log(data.weather.main);
     } else if (data.name == undefined) {
         console.log(data.name);
         $("#error").html('City Could Not Be Located');
@@ -214,12 +212,16 @@ function processForecastResults(data) {
     if (data.city.name !== undefined) {
 
         $('.day-name').text(function(i) {
-            return dayNames[(day + ++i) % dayNames.length];
+
+            return dayNames[(day + +i) % dayNames.length];
         });
 
     }
 
     // $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+
+
+
     //day 1 weather icon
     var iconCodeOne = data.list[1].weather[0].icon;
     var iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
@@ -241,6 +243,12 @@ function processForecastResults(data) {
     var iconUrlFive = "http://openweathermap.org/img/w/" + iconCodeFive + ".png";
     $("#iconFive").html("<img src='" + iconUrlFive + "'>" + data.list[1].weather[0].main);
 
+    //day 5 weather icon
+    var iconCodeSix = data.list[6].weather[0].icon;
+    var iconUrlSix = "http://openweathermap.org/img/w/" + iconCodeSix + ".png";
+    $("#iconSix").html("<img src='" + iconUrlSix + "'>" + data.list[1].weather[0].main);
+
+
 
     //forecast temp highs
     $('#dayOneMax').html(Math.round(data.list[1].temp.max));
@@ -248,10 +256,12 @@ function processForecastResults(data) {
     $('#dayThreeMax').html(Math.round(data.list[3].temp.max));
     $('#dayFourMax').html(Math.round(data.list[4].temp.max));
     $('#dayFiveMax').html(Math.round(data.list[5].temp.max));
+    $('#daySixMax').html(Math.round(data.list[6].temp.max));
     // forecast temp lows
     $('#dayOneMin').html(Math.round(data.list[1].temp.min));
     $('#dayTwoMin').html(Math.round(data.list[2].temp.min));
     $('#dayThreeMin').html(Math.round(data.list[3].temp.min));
     $('#dayFourMin').html(Math.round(data.list[4].temp.min));
     $('#dayFiveMin').html(Math.round(data.list[5].temp.min));
+    $('#daySixMin').html(Math.round(data.list[6].temp.min));
 }
