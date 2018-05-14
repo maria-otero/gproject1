@@ -68,23 +68,61 @@ function initMap(centerLat, centerLng) {
 
 // Dynamically creating a new card function
 function generateCard(city) {
-    var newCard = $(`<div id="card1" class="col-md-4"><div class="card"><h5 id="city-name">${city}</h5><div class='map' id="newMap"></div><div class="card-info-box">
-    <h4 id="accommodation-name${cardIdx}"></h4>
-    <p>Price <span id="price-id${cardIdx}"></span> </p><p>Rating <span id="rating-id${cardIdx}"></span></p><button href="#" class="btn btn-outline-dark">More Info</button>
-
-    </div><div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel"><div class="carousel-inner">
-    <div class="carousel-item active"><img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    <div class="carousel-item"><img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide"></div>
-    </div><a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div></div>`);
-   
+    var newCard = $(`
+    <div id="card1" class="col-md-4">
+        <div class="card">
+            <h5 id="city-name">${city}</h5>
+            <div class='map' id="newMap"></div>
+            <div class="card-info-box">
+                <h4 id="accommodation-name${cardIdx}"></h4>
+                <p>Price <span id="price-id${cardIdx}"></span> </p>
+                <p>Rating <span id="rating-id${cardIdx}"></span></p>
+                <button href="#" class="btn btn-outline-dark">More Info</button>
+            </div>
+            <div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/hotel-1.jpeg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/hotel-2.jpeg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/hotel-3.jpeg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>`);
 
     $('#bodyRow').append(newCard);
 }
