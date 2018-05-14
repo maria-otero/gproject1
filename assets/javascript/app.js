@@ -6,28 +6,28 @@ $('#add-city-button').on('click', function(event) {
     event.preventDefault();
     //FORMATTING USERINPUT
     cityInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
-    $('#add-city').val('');
+    // $('#add-city').val('');
     activityInput = $('#add-item').val();
-    $('#add-item').val('');
+    // $('#add-item').val('');
     distanceInput = $('#distanceSelector').val();
     switch(distanceInput) { //CONVERTING MILES TO METERS
+        case '2.5 miles':
+            distanceInput = '4000';
+            break;
         case '5 miles':
-            distanceInput = 4000;
+            distanceInput = '8000';
+            break;
+        case '7.5 miles':
+            distanceInput = '12000';
             break;
         case '10 miles':
-            distanceInput = 8000;
+            distanceInput = '16000';
+            break;
+        case '12.5 miles':
+            distanceInput = '20000';
             break;
         case '15 miles':
-            distanceInput = 12000;
-            break;
-        case '20 miles':
-            distanceInput = 16000;
-            break;
-        case '25 miles':
-            distanceInput = 20000;
-            break;
-        case '30 miles':
-            distanceInput = 24000;
+            distanceInput = '24000';
             break;
     }
 
@@ -53,32 +53,61 @@ function initMap(centerLat, centerLng) {//CREATING MAP
         zoom: 12,
         center: centerLatlng
     });
+    switch(distanceInput) { //SETTING MAP ZOOM
+        case '4000':
+            map.zoom = 11;
+            break;
+        case '8000':
+            map.zoom = 10;
+            break;
+        case '12000':
+            map.zoom = 9;
+            break;
+        case '16000':
+            map.zoom = 9;
+            break;
+        case '20000':
+            map.zoom = 8;
+            break;
+        case '24000':
+            map.zoom = 8;
+            break;
+    }
 
     $('#newMap').attr('id', 'map' + cardIdx)
-
+    var queryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=${distanceInput}&keyword=${activityInput}&location=${centerLat},${centerLng}`
     $.ajax({//SEARCHING FOR MATCHES NEAR CENTER
-        url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=${distanceInput}&keyword=${activityInput}&location=${centerLat},${centerLng}`,
+        url: queryURL,
         method: 'GET'
-    }).then(function(response) {
+    }).then(function(response) {//PLACING MARKERS
+        
+        //sorting function
+        response.results.sort(function(a, b) {
+            return a.rating - b.rating;
+        })
+        var sortedArr = response.results.slice(0, 5);
+
         var markerArr = [];
-        for (let idx=0; idx<response.results.length; idx++){
-            var markerLatLng = {lat: response.results[idx].geometry.location.lat, lng: response.results[idx].geometry.location.lng};
+
+        for (let idx=0; idx<sortedArr.length; idx++){
+            var markerLatLng = {lat: sortedArr[idx].geometry.location.lat, lng: sortedArr[idx].geometry.location.lng};
 
             markerArr[idx] = new google.maps.Marker({
                 position: markerLatLng,
                 map: map,
-                title: response.results[idx].name,
+                title: sortedArr[idx].name,
                 cardCreationIdx: cardIdx-1,
-                placeId: response.results[idx].place_id
+                placeId: sortedArr[idx].place_id
             });
-            markerArr[idx].addListener('click', function() {//CREATING MARKERS
-                $(`#accommodation-name${this.cardCreationIdx}`).text(response.results[idx].name);
-                $(`#rating-id${this.cardCreationIdx}`).text(response.results[idx].rating);
+            markerArr[idx].addListener('click', function() {//MARKER CLICK LISTENING
+                $(`#accommodation-name${this.cardCreationIdx}`).text(sortedArr[idx].name);
+                $(`#rating-id${this.cardCreationIdx}`).text(sortedArr[idx].rating);
                 var photoDetailIdx = this.cardCreationIdx;
                 $.ajax({//GETTING PLACE DETAILS AND PHOTOREFS
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
                 }).then (function(snapshot){
+                    console.log(snapshot);
                     for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
                         var photoReference = snapshot.result.photos[photoIdx].photo_reference;
                         var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
@@ -103,7 +132,6 @@ function generateCard() {
             <div class='map' id="newMap"></div>
             <div class="card-info-box">
                 <h4 id="accommodation-name${cardIdx}"></h4>
-                <p>Average rating for your search: <span id="average-rating-id${cardIdx}"></span> </p>
                 <p>Rating of this location: <span id="rating-id${cardIdx}"></span></p>
                 <button href="#" class="btn btn-outline-dark">More Info</button>
             </div>
