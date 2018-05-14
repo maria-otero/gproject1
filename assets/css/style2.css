@@ -113,12 +113,6 @@
     .hotelInfo {
         margin-top: 15px;
     }
-    /* Tempeture, symbol and F for fahrenheit */
-    /* Centers all objects in container */
-    
-    .row {
-        text-align: center;
-    }
     /* Displays information for next 5 days */
     
     .day-name,
@@ -139,32 +133,4 @@
     #dayFiveMin {
         display: inline-table;
         height: 50px;
-    }
-    
-    #showTemp {
-        font-size: 35px;
-        margin-left: -20px;
-        top: 70px;
-        position: absolute;
-    }
-    
-    .deg {
-        font-size: 35px;
-        margin-left: -220px;
-        top: 70px;
-        position: absolute;
-    }
-    
-    #showMain {
-        font-size: 25px;
-        margin-left: -20px;
-        top: 120px;
-        position: absolute;
-    }
-    
-    .f {
-        font-size: 35px;
-        margin-left: -200px;
-        top: 70px;
-        position: absolute;
     }
