@@ -56,8 +56,21 @@
         background-color: rgba(255, 255, 255, 0.6);
         font-family: 'Libre Baskerville', serif;
         margin-bottom: 1%;
+        
     }
-    
+    .form-inline {
+        padding-top: 1em;
+       
+    }
+
+    #add-city-button {
+        margin-left: 1em;
+    }
+
+    .navBarLabels {
+        font-size: 1.5em;
+    }
+
     span {
         margin-right: 5px;
     }
@@ -66,10 +79,10 @@
     .checked {
         color: orange;
     }
-    
-    /* #star1.hover {
-        color: 
-    } */
+
+    input:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
     
     .form-control {
         font-size: 13px;
