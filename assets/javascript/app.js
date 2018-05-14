@@ -107,12 +107,16 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
                 }).then (function(snapshot){
-                    console.log(snapshot);
-                    for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
+                    console.log(snapshot) //LOGGING DETAILS SEARCH
+                    for (var photoIdx = 0; photoIdx < 10; photoIdx++) {//UPDATING PHOTO SRCS
                         var photoReference = snapshot.result.photos[photoIdx].photo_reference;
                         var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
                         $(`#img-accommodation-${photoIdx}-${photoDetailIdx}`).attr("src", photoQueryURL);
                     };
+                    for (var reviewIdx = 1; reviewIdx<4; reviewIdx++) {//UPDATING REVIEWS
+
+                        $(`#reviewBox${reviewIdx}`).text() //USE snapshot.result.reviews[reviewIdx].author_name and .text
+                    }
                 });
 
             });
@@ -123,7 +127,7 @@ function initMap(centerLat, centerLng) {//CREATING MAP
 // Dynamically creating a new card function
 function generateCard() {
     var newCard = $(`
-    <div id="card1" class="col-md-4">
+    <div id="card${cardIdx}" class="col-md-4">
         <div class="card">
             <h5>
                 <span id="city-name">${cityInput}</span>
