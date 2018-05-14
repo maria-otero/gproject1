@@ -32,28 +32,34 @@
     <nav id="navbar-info" class="navbar">
         <form class="form-inline">
             <!-- Choce a place -->
-            <input id="add-city" class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search">
-            <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
-            <!-- Define price -->
-            <label for="exampleFormControlSelect1"> Min price</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-                <option>$10.00</option>
-                <option>$20.00</option>
-                <option>$30.00</option>
-            </select>
-            <label for="exampleFormControlSelect1"> Max price</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-                <option>$40.00</option>
-                <option>$50.00</option>
-                <option>$60.00</option>
-            </select>
+            <label>Choce a city: </label>
+            <input id="add-city" class="form-control mr-sm-2" type="search" placeholder="Monterrey" aria-label="Search">
+            <!-- <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button> -->
+            <!-- Define item -->
+            <label>Activity: </label>
+            <input id="add-item" class="form-control mr-sm-2" type="search" placeholder="Scuba Diving" aria-label="Search">
+            <!-- <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button> -->
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"># of Results:</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                </select>
+            </div>
             <!-- stars rating -->
             <label>Star Rating</label>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star notChecked"></span>
-            <span class="fa fa-star notChecked"></span>
+            <div class="starsDiv">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star notChecked"></span>
+                <span class="fa fa-star notChecked"></span>
+            </div>
+            <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
         </form>
     </nav>
 
