@@ -67,9 +67,9 @@
         color: orange;
     }
     
-    .notChecked:hover {
-        color: orange;
-    }
+    /* #star1.hover {
+        color: 
+    } */
     
     .form-control {
         font-size: 13px;
@@ -104,68 +104,12 @@
         width: 100%;
         height: 300px;
     }
-    /* Page2.html style  */
     
-    .page2-card {
-        padding-top: 0%;
-    }
-    /* Contains "search-field" -- Place-holder and button*/
     
     .card-body {
         padding-top: 0%;
     }
-    /* Tempeture, symbol and F for fahrenheit */
-    /* Centers all objects in container */
+
     
-    .row {
-        text-align: center;
-    }
-    /* Displays information for next 5 days */
     
-    .day-name,
-    #iconOne,
-    #iconTwo,
-    #iconThree,
-    #iconFour,
-    #iconFive,
-    #dayOneMax,
-    #dayTwoMax,
-    #dayThreeMax,
-    #dayFourMax,
-    #dayFiveMax,
-    #dayOneMin,
-    #dayTwoMin,
-    #dayThreeMin,
-    #dayFourMin,
-    #dayFiveMin {
-        display: inline-table;
-        height: 50px;
-    }
-    
-    #showTemp {
-        font-size: 35px;
-        margin-left: -20px;
-        top: 70px;
-        position: absolute;
-    }
-    
-    .deg {
-        font-size: 35px;
-        margin-left: -220px;
-        top: 70px;
-        position: absolute;
-    }
-    
-    #showMain {
-        font-size: 25px;
-        margin-left: -20px;
-        top: 120px;
-        position: absolute;
-    }
-    
-    .f {
-        font-size: 35px;
-        margin-left: -200px;
-        top: 70px;
-        position: absolute;
-    }
+   

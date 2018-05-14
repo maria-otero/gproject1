@@ -1,17 +1,42 @@
 var cardIdx = 0;
+var cityInput, activityInput, distanceInput, starInput;
 
 //DYNAMICALLY EMBEDDING MAPS
 $('#add-city-button').on('click', function(event) {
     event.preventDefault();
     //FORMATTING USERINPUT
-    var userInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
+    cityInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
     $('#add-city').val('');
+    activityInput = $('#add-item').val();
+    $('#add-item').val('');
+    distanceInput = $('#distanceSelector').val();
+    switch(distanceInput) { //CONVERTING MILES TO METERS
+        case '5 miles':
+            distanceInput = 4000;
+            break;
+        case '10 miles':
+            distanceInput = 8000;
+            break;
+        case '15 miles':
+            distanceInput = 12000;
+            break;
+        case '20 miles':
+            distanceInput = 16000;
+            break;
+        case '25 miles':
+            distanceInput = 20000;
+            break;
+        case '30 miles':
+            distanceInput = 24000;
+            break;
+    }
+
     //CREATING CARD
-    generateCard(userInput);
+    generateCard();
 
     var locLat, locLng;
-    $.ajax({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${userInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
+    $.ajax({//LOOKING UP CITY LAT/LONG
+        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${cityInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
         method: 'GET'
     }).then(function(response) {
         centerLat = response.results[0].geometry.location.lat;
@@ -21,7 +46,7 @@ $('#add-city-button').on('click', function(event) {
     cardIdx++;
 })
 
-function initMap(centerLat, centerLng) {
+function initMap(centerLat, centerLng) {//CREATING MAP
     var map;
     var centerLatlng = { lat: centerLat, lng: centerLng };
     map = new google.maps.Map(document.getElementById('newMap'), {
@@ -31,8 +56,8 @@ function initMap(centerLat, centerLng) {
 
     $('#newMap').attr('id', 'map' + cardIdx)
 
-    $.ajax({
-        url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=1500&keyword=hotel&location=${centerLat},${centerLng}`,
+    $.ajax({//SEARCHING FOR MATCHES NEAR CENTER
+        url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=${distanceInput}&keyword=${activityInput}&location=${centerLat},${centerLng}`,
         method: 'GET'
     }).then(function(response) {
         var markerArr = [];
@@ -46,11 +71,11 @@ function initMap(centerLat, centerLng) {
                 cardCreationIdx: cardIdx-1,
                 placeId: response.results[idx].place_id
             });
-            markerArr[idx].addListener('click', function() {
+            markerArr[idx].addListener('click', function() {//CREATING MARKERS
                 $(`#accommodation-name${this.cardCreationIdx}`).text(response.results[idx].name);
                 $(`#rating-id${this.cardCreationIdx}`).text(response.results[idx].rating);
                 var photoDetailIdx = this.cardCreationIdx;
-                $.ajax({
+                $.ajax({//GETTING PLACE DETAILS AND PHOTOREFS
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
                 }).then (function(snapshot){
@@ -67,16 +92,19 @@ function initMap(centerLat, centerLng) {
 };
 
 // Dynamically creating a new card function
-function generateCard(city) {
+function generateCard() {
     var newCard = $(`
     <div id="card1" class="col-md-4">
         <div class="card">
-            <h5 id="city-name">${city}</h5>
+            <h5>
+                <span id="city-name">${cityInput}</span>
+                <span id='activity-name'>${activityInput}</span>
+            </h5>
             <div class='map' id="newMap"></div>
             <div class="card-info-box">
                 <h4 id="accommodation-name${cardIdx}"></h4>
-                <p>Price <span id="price-id${cardIdx}"></span> </p>
-                <p>Rating <span id="rating-id${cardIdx}"></span></p>
+                <p>Average rating for your search: <span id="average-rating-id${cardIdx}"></span> </p>
+                <p>Rating of this location: <span id="rating-id${cardIdx}"></span></p>
                 <button href="#" class="btn btn-outline-dark">More Info</button>
             </div>
             <div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel">
