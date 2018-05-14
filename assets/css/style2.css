@@ -134,3 +134,33 @@
         display: inline-table;
         height: 50px;
     }
+    
+    .page2-card {
+        margin-top: 15px;
+    }
+    
+    img {
+        margin-top: 15px;
+    }
+    
+    .com {
+        float: left;
+        width: 20%;
+        padding: 20%;
+    }
+    
+    .col1 {
+        color: blue;
+    }
+    
+    .col2 {
+        background: lightblue;
+    }
+    
+    .col3 {
+        background: indigo;
+    }
+    
+    .wrapper {
+        display: flex;
+    }
