@@ -81,34 +81,34 @@ function generateCard(city) {
             </div>
             <div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <div class="carousel-item carouImages active">
                         <img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="First slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Second slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item carouImages">
                         <img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="assets/img/placeholder.png" alt="Third slide">
                     </div>
                 </div>

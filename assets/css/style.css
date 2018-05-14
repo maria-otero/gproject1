@@ -75,6 +75,11 @@
         font-size: 13px;
     }
     
+    .carouImages {
+        width: 100%;
+        height: 300px;
+    }
+
     .card {
         /* margin: 15px 8px 15px 8px; */
         border-radius: 0px;
