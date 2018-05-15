@@ -3,38 +3,34 @@ header {
     margin-bottom: 30px;
 }
 
+
+
+/* font-family: 'Muli', sans-serif;
+font-family: 'Work Sans', sans-serif; */
+
+
+
 body {
-    background: #2a3138 url("../img/background.png") no-repeat;
+    background: #2a3138 url("../img/background-food-3.png") no-repeat;
     margin: 2% 5% 0% 5%;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: 400;
+    font-family: 'Muli', sans-serif;
+    font-weight: 300;
     font-size: 16px;
     background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Libre Baskerville', serif;
-    color: rgb(39, 39, 39);
+    font-family: 'Prata', serif;
+    color: #c09000;
 }
 
-h5 {
-    /* padding: 15px; */
-    text-align: center;
-    font-family: 'Gothic A1', sans-serif;
-    text-transform: uppercase;
-    /* font-size: 16px; */
-    font-weight: 600;
-    letter-spacing: 2px;
-
-}
 
 .city-name {
     text-align: center;
 }
 
 label {
-    font-family: 'Gothic A1', sans-serif;
-    /* text-transform: uppercase; */
+    font-family: 'Muli', sans-serif;
     padding-right: 10px;
     padding-left: 20px;
 }
@@ -121,7 +117,7 @@ form {
     background-color: rgba(0,0,0,0);
     border-bottom: none;
     padding: 0.5rem 1rem;
-    font-weight: bold;
+    font-family: 'Prata', serif;
 }
 
 .navbar {
