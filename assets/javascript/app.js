@@ -104,6 +104,7 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                 $(`#accommodation-name${this.cardCreationIdx}`).text(sortedArr[idx].name);
                 $(`#rating-id${this.cardCreationIdx}`).text(sortedArr[idx].rating);
                 var photoDetailIdx = this.cardCreationIdx;
+                console.log(this.placeId)
                 $.ajax({//GETTING PLACE DETAILS AND PHOTOREFS
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
