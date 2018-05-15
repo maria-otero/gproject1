@@ -116,9 +116,11 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                 cardCreationIdx: cardIdx-1,
                 placeId: sortedArr[idx].place_id
             });
-            markerArr[idx].addListener('click', function() {//MARKER CLICK LISTENING
+            markerArr[idx].addListener('click', function() {//MARKER CLICK LISTENING AND SUBROW CREATION
                 $(`#subrow-${this.cardCreationIdx}-${subrowIdx}`).removeClass('invisible');
                 $(`#nameOfActivity-${subrowIdx}-${this.cardCreationIdx}`).text(sortedArr[idx].name);//updated5/15
+                // var activityName = sortedArr[idx].name;
+                // $(`#likeButton-${subrowIdx}-${this.cardCreationIdx}`).attr('name-data', activityName)
                 var listenerCardIdx = this.cardCreationIdx;
                 $.ajax({//GETTING PLACE DETAILS AND PHOTOREFS
                     method: 'GET',
@@ -141,15 +143,7 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                     subrowIdx = subrowIdx%3;
                     console.log(subrowIdx)
                 });
-
             });
-            // markerArr[idx].addListener("mouseover", function() {
-            //     var contentString = `<h1>${sortedArr[idx].name}</h1>`
-            //     var infowindow = new google.maps.Infowindow({
-            //         content: contentString
-            //     });
-            //     infowindow.open(contentString);
-            // })
         };
     });
 };
@@ -179,7 +173,6 @@ function generateCard() {
                             <i class="fas fa-utensils"></i>
                             <span id="nameOfActivity-0-${cardIdx}"></span>
                             <span id="addressOfActivity-0-${cardIdx}"></span>
-                            <button id='likeButton-0-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
                         </h5>
                     </div>  
 
@@ -257,7 +250,6 @@ function generateCard() {
                             <i class="fas fa-utensils"></i>
                             <span id="nameOfActivity-1-${cardIdx}">Delete this Title</span>
                             <span id="addressOfActivity-1-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
-                            <button id='likeButton-1-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
                         </h5>
                     </div>  
                     <div class="row">
@@ -332,7 +324,6 @@ function generateCard() {
                             <i class="fas fa-utensils"></i>
                             <span id="nameOfActivity-2-${cardIdx}">Delete this Title</span>
                             <span id="addressOfActivity-2-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
-                            <button id='likeButton-2-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
                         </h5>
                     </div>  
                     <div class="row">
@@ -411,13 +402,22 @@ function generateCard() {
     </div>
 `);
 
-    $('#bodyRow').append(newCard);
-}
+    $('#bodyRow').prepend(newCard);
+};
 
 //LIKE BUTTON CLICK LISTENER SETTING TO FIREBASE
-$(document).on('click', '.like-button', function() {
-    console.log(this)
-})
+var connectionsRef = database.ref("/connections");
+var connectedRef = database.ref(".info/connected");
+connectedRef.on("value", function(snap) {
+  if (snap.val()) {
+    var con = connectionsRef.push(true);
+    con.onDisconnect().remove();
+  }
+});
+
+connectionsRef.on("value", function(snap) {
+    $("#connected-viewers").text(snap.numChildren());
+});
 
 
 
