@@ -90,6 +90,10 @@ form {
     margin-bottom: 0.6em;
 }
 
+.odd-card {
+    background-color: rgb(76, 25, 25, 0.5);
+}
+
 .cardInside {
     overflow: auto;
 }
@@ -178,6 +182,7 @@ form {
 .popularity-button {
     font-size: 0.9em;
 }
+
 
 
 @media only screen and (max-width: 1262px) {
