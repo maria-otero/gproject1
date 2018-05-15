@@ -48,6 +48,10 @@ $('#add-city-button').on('click', function(event) {
 
     //CREATING CARD
     generateCard();
+    if (cardIdx%2 === 1) {
+        $('.new-card').addClass('odd-card')
+    };
+    $('.new-card').removeClass('new-card');
 
     var locLat, locLng;
     $.ajax({//LOOKING UP CITY LAT/LONG
@@ -153,9 +157,9 @@ function generateCard() {
     var newCard = $(`
     <div class="container">
 
-        <div class="row">
+        <div class="row" id="row${cardIdx}">
             <div class="col-md-3 no-left-padding">
-                <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card new-card border-primary mb-3" style="max-width: 18rem;">
 
                     <div class="card-header city-name">    
                         <span id="city-name"><h4>${cityInput}</h4></span>
@@ -167,7 +171,7 @@ function generateCard() {
             </div>
 
             <div class="col-md-9 no-left-padding">
-                <div class="card margin-bottom invisible" id='subrow-${cardIdx}-0'>
+                <div class="card new-card margin-bottom invisible" id='subrow-${cardIdx}-0'>
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
@@ -244,7 +248,7 @@ function generateCard() {
 
 
 
-                    <div class="card margin-bottom invisible" id='subrow-${cardIdx}-1'>
+                    <div class="card new-card margin-bottom invisible" id='subrow-${cardIdx}-1'>
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
@@ -318,7 +322,7 @@ function generateCard() {
                     </div>  
 
 
-                    <div class="card margin-bottom invisible" id='subrow-${cardIdx}-2'>
+                    <div class="card new-card margin-bottom invisible" id='subrow-${cardIdx}-2'>
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
@@ -401,7 +405,6 @@ function generateCard() {
         </div>
     </div>
 `);
-
     $('#bodyRow').prepend(newCard);
 };
 
