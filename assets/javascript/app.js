@@ -1,3 +1,17 @@
+//INITIALIZE FIREBASE
+var config = {
+    apiKey: "AIzaSyB_cQlyfp-ABaVnXi9PtFUnScHpnhufX2c",
+    authDomain: "groupproject1-251ef.firebaseapp.com",
+    databaseURL: "https://groupproject1-251ef.firebaseio.com",
+    projectId: "groupproject1-251ef",
+    storageBucket: "",
+    messagingSenderId: "1068697721432"
+  };
+  firebase.initializeApp(config);
+
+var database = firebase.database();
+
+//CREATING DOM VARS
 var cardIdx = 0;
 var cityInput, activityInput, distanceInput, starInput;
 
@@ -102,15 +116,17 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                 cardCreationIdx: cardIdx-1,
                 placeId: sortedArr[idx].place_id
             });
-            markerArr[idx].addListener('click', function() {//MARKER CLICK LISTENING
+            markerArr[idx].addListener('click', function() {//MARKER CLICK LISTENING AND SUBROW CREATION
                 $(`#subrow-${this.cardCreationIdx}-${subrowIdx}`).removeClass('invisible');
                 $(`#nameOfActivity-${subrowIdx}-${this.cardCreationIdx}`).text(sortedArr[idx].name);//updated5/15
+                // var activityName = sortedArr[idx].name;
+                // $(`#likeButton-${subrowIdx}-${this.cardCreationIdx}`).attr('name-data', activityName)
                 var listenerCardIdx = this.cardCreationIdx;
                 $.ajax({//GETTING PLACE DETAILS AND PHOTOREFS
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
                 }).then (function(snapshot){//PUSHING MORE SUBROW DETAILS
-                    console.log(snapshot);
+                    // console.log(snapshot);
                     $(`#addressOfActivity-${subrowIdx}-${listenerCardIdx}`).text(snapshot.result.formatted_address);
                     $(`#priceOfPlace-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.price_level);
                     $(`#ratingOfPlace-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.rating);
@@ -124,16 +140,10 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                         $(`#img-accommodation-${photoIdx}-${listenerCardIdx}-${subrowIdx}`).attr("src", photoQueryURL);
                     };
                     subrowIdx++; //ITERATING TO HIT NEW SUBROW
+                    subrowIdx = subrowIdx%3;
+                    console.log(subrowIdx)
                 });
-
             });
-            // markerArr[idx].addListener("mouseover", function() {
-            //     var contentString = `<h1>${sortedArr[idx].name}</h1>`
-            //     var infowindow = new google.maps.Infowindow({
-            //         content: contentString
-            //     });
-            //     infowindow.open(contentString);
-            // })
         };
     });
 };
@@ -161,7 +171,8 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
-                            <span id="nameOfActivity-0-${cardIdx}"></span><span id="addressOfActivity-0-${cardIdx}"></span>
+                            <span id="nameOfActivity-0-${cardIdx}"></span>
+                            <span id="addressOfActivity-0-${cardIdx}"></span>
                         </h5>
                     </div>  
 
@@ -217,7 +228,6 @@ function generateCard() {
                             <div class="cardInside">
                                 <p><strong>Price </strong><span id="priceOfPlace-${cardIdx}-0">N/A</span></p>
                                 <p><strong>Rating </strong><span id="ratingOfPlace-${cardIdx}-0"></span></p>
-                                <button id="popularityHook" type="button" class="btn popularity-button"><strong>Popularity</strong></button>
                             </div>
                         </div>
 
@@ -238,7 +248,8 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
-                            <span id="nameOfActivity-1-${cardIdx}"></span><span id="addressOfActivity-1-${cardIdx}"></span>
+                            <span id="nameOfActivity-1-${cardIdx}"></span>
+                            <span id="addressOfActivity-1-${cardIdx}"></span>
                         </h5>
                     </div>  
                     <div class="row">
@@ -293,7 +304,6 @@ function generateCard() {
                             <div class="cardInside">
                                 <p><strong>Price  </strong><span id="priceOfPlace-${cardIdx}-1">N/A</span></p>
                                 <p><strong>Rating </strong><span id="ratingOfPlace-${cardIdx}-1"></span></p>
-                                <button id="popularityHook" type="button" class="btn popularity-button"><strong>Popularity</strong></button>
                             </div>
                         </div>
 
@@ -312,7 +322,8 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
-                            <span id="nameOfActivity-2-${cardIdx}"></span><span id="addressOfActivity-2-${cardIdx}"></span>
+                            <span id="nameOfActivity-2-${cardIdx}"></span>
+                            <span id="addressOfActivity-2-${cardIdx}"></span>
                         </h5>
                     </div>  
                     <div class="row">
@@ -367,7 +378,6 @@ function generateCard() {
                             <div class="cardInside">
                                 <p><strong>Price </strong><span id="priceOfPlace-${cardIdx}-2">N/A</span></p>
                                 <p><strong>Rating </strong><span id="ratingOfPlace-${cardIdx}-2"></span></p>
-                                <button id="popularityHook" type="button" class="btn popularity-button"><strong>Popularity</strong></button>
                             </div>
                         </div>
 
@@ -392,10 +402,22 @@ function generateCard() {
     </div>
 `);
 
-    $('#bodyRow').append(newCard);
-}
+    $('#bodyRow').prepend(newCard);
+};
 
+//LIKE BUTTON CLICK LISTENER SETTING TO FIREBASE
+var connectionsRef = database.ref("/connections");
+var connectedRef = database.ref(".info/connected");
+connectedRef.on("value", function(snap) {
+  if (snap.val()) {
+    var con = connectionsRef.push(true);
+    con.onDisconnect().remove();
+  }
+});
 
+connectionsRef.on("value", function(snap) {
+    $("#connected-viewers").text(snap.numChildren());
+});
 
 
 
