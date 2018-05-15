@@ -128,4 +128,7 @@ form {
     padding: 1em;
 }
 
-
+.resultReviewBox {
+    height: 4em;
+    overflow: auto;
+}
