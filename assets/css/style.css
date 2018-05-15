@@ -18,30 +18,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h5 {
-    padding: 20px;
+    /* padding: 15px; */
     text-align: center;
     font-family: 'Gothic A1', sans-serif;
     text-transform: uppercase;
-    font-size: 16px;
+    /* font-size: 16px; */
     font-weight: 600;
     letter-spacing: 2px;
-    margin-top: 4px;
-    margin-bottom: 0px;
+
+}
+
+.city-name {
+    text-align: center;
 }
 
 label {
     font-family: 'Gothic A1', sans-serif;
     /* text-transform: uppercase; */
     padding-right: 10px;
-    padding-left: 35px;
-    font-family: 'Libre Baskerville', serif;
+    padding-left: 20px;
 }
 
 nav {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
     background-color: rgba(255, 255, 255, 0.6);
-    font-family: 'Libre Baskerville', serif;
     margin-bottom: 1%;
     
 }
@@ -55,9 +56,9 @@ input:focus::-webkit-input-placeholder {
     color: transparent;
 }
 
-.form-inline {
-    padding-top: 1em;
-    
+form {
+    margin: 0rem;
+    padding: 0rem;
 }
 
 #add-city-button {
@@ -71,7 +72,7 @@ input:focus::-webkit-input-placeholder {
 
 .carouImages {
     width: 100%;
-    height: 200px;
+    height: 8em;
 }
 
 .card {
@@ -87,21 +88,44 @@ input:focus::-webkit-input-placeholder {
 }
 
 .card-info-box {
-    padding: 15px;
-}
-
-.col-md-4 {
-    padding-left: 0px;
+    padding: 1em;
 }
 
 .map {
     width: 100%;
-    height: 300px;
+    height: 560px;
 }
 
 
 .card-body {
     padding-top: 0%;
+}
+
+.no-left-padding {
+    padding-left: 0px !important;
+}
+
+.top-padding {
+    padding-top: 1rem;
+}
+
+.margin-bottom {
+    margin-bottom: 0.8em;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.card-header {
+    background-color: rgba(0,0,0,0);
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+
+}
+
+.navbar {
+    padding: 1em;
 }
 
 
