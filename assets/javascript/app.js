@@ -110,7 +110,7 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
                 }).then (function(snapshot){//PUSHING MORE SUBROW DETAILS
-                    console.log(snapshot);
+                    // console.log(snapshot);
                     $(`#addressOfActivity-${subrowIdx}-${listenerCardIdx}`).text(snapshot.result.formatted_address);
                     $(`#priceOfPlace-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.price_level);
                     $(`#ratingOfPlace-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.rating);
@@ -124,6 +124,8 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                         $(`#img-accommodation-${photoIdx}-${listenerCardIdx}-${subrowIdx}`).attr("src", photoQueryURL);
                     };
                     subrowIdx++; //ITERATING TO HIT NEW SUBROW
+                    subrowIdx = subrowIdx%3;
+                    console.log(subrowIdx)
                 });
 
             });
@@ -162,7 +164,9 @@ function generateCard() {
                 <div class="card margin-bottom invisible" id='subrow-${cardIdx}-0'>
                     <div class="card-header">
                         <i class="fas fa-map-pin"></i>
-                        <span id="nameOfActivity-0-${cardIdx}">Delete this Title</span><span id="addressOfActivity-0-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                        <span id="nameOfActivity-0-${cardIdx}">Delete this Title</span>
+                        <span id="addressOfActivity-0-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                        <button id='likeButton-0-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
                     </div>  
 
                     <div class="row">
@@ -224,7 +228,7 @@ function generateCard() {
                         <div class="col-md-6 top-padding">
                             <div class="cardInside">
                                 <p>Reviewer: <span id="reviewer-${cardIdx}-0"></span>gave this place <span id="reviewerRated-${cardIdx}-0"></span>stars</p>
-                                <p id="reviewResult-${cardIdx}-0"></p>
+                                <p>"<span id="reviewResult-${cardIdx}-0"></span>"</p>
                             </div>
                         </div>
                         </div>
@@ -237,7 +241,9 @@ function generateCard() {
                     <div class="card margin-bottom invisible" id='subrow-${cardIdx}-1'>
                     <div class="card-header">
                         <i class="fas fa-map-pin"></i>
-                        <span id="nameOfActivity-1-${cardIdx}">Delete this Title</span><span id="addressOfActivity-1-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                        <span id="nameOfActivity-1-${cardIdx}">Delete this Title</span>
+                        <span id="addressOfActivity-1-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                        <button id='likeButton-1-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
                     </div>  
                     <div class="row">
                         <div class="col-md-4">
@@ -298,7 +304,7 @@ function generateCard() {
                         <div class="col-md-6 top-padding">
                             <div class="cardInside">
                                 <p>Reviewer: <span id="reviewer-${cardIdx}-1"></span>gave this place <span id="reviewerRated-${cardIdx}-1"></span>stars</p>
-                                <p id="reviewResult-${cardIdx}-1"></p>
+                                <p>"<span id="reviewResult-${cardIdx}-1"></span>"</p>
                             </div>
                         </div>
                         </div>
@@ -309,7 +315,9 @@ function generateCard() {
                     <div class="card margin-bottom invisible" id='subrow-${cardIdx}-2'>
                     <div class="card-header">
                         <i class="fas fa-map-pin"></i>
-                        <span id="nameOfActivity-2-${cardIdx}">Delete this Title</span><span id="addressOfActivity-2-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                        <span id="nameOfActivity-2-${cardIdx}">Delete this Title</span>
+                        <span id="addressOfActivity-2-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                        <button id='likeButton-2-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
                     </div>  
                     <div class="row">
                         <div class="col-md-4">
@@ -370,7 +378,7 @@ function generateCard() {
                         <div class="col-md-6 top-padding">
                             <div class="cardInside">
                                 <p>Reviewer: <span id="reviewer-${cardIdx}-2"></span>gave this place <span id="reviewerRated-${cardIdx}-2"></span>stars</p>
-                                <p id="reviewResult-${cardIdx}-2"></p>
+                                <p>"<span id="reviewResult-${cardIdx}-2"></span>"</p>
                             </div>
                         </div>
                         </div>
@@ -391,7 +399,9 @@ function generateCard() {
     $('#bodyRow').append(newCard);
 }
 
-
+$(document).on('click', '.like-button', function() {
+    console.log(this)
+})
 
 
 
