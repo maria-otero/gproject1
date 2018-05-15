@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    font-size: 0.9em;
 }
 
 .city-name {
@@ -86,8 +87,12 @@ form {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 0.750em;
     overflow: none;
+    margin-bottom: 0.6em;
 }
 
+.cardInside {
+    overflow: auto;
+}
 
 .card-info-box {
     padding: 1em;
@@ -158,6 +163,22 @@ form {
     color: #34170d;
 }
 
+.marginOfCols {
+    margin-right: 0.5em;
+}
+
+.reviewBox {
+    height: 4em;
+    overflow: auto;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-right: 1em;
+}
+
+.popularity-button {
+    font-size: 0.9em;
+}
+
 
 @media only screen and (max-width: 1262px) {
     h5 {
@@ -181,7 +202,6 @@ form {
         padding-right: 1.5rem;
     }
 
-    .margin-right-little {
-        margin-right: 0.563em;
-    }
+
 }
+
