@@ -162,19 +162,65 @@ function generateCard() {
                 <div class="card new-card border-primary mb-3" style="max-width: 18rem;">
 
                     <div class="card-header city-name">    
-                        <span id="city-name"><h4>${cityInput}</h4></span>
-                    </div>
+                        <span id="city-name"><h5>${cityInput}, ${activityInput}</h5></span>
+                     </div>
                         <div class="card-body text-primary">
-                        <div class="map" id="newMap"></div>
+                            <div class="map" id="newMap"></div>
+                                <table>
+                                
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row">
+                                                <div class="day-name"></div>
+                                            </td>
+                                            <td>
+                                                <div id="iconOne"></div>
+                                            </td>
+                                            <td>
+                                                <div id="dayOneMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
+                                                <div id="dayOneMin"></div><span class="deg"></span><span class="f"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <div class="day-name"></div>
+                                            </td>
+                
+                                            <td>
+                                                <div id="iconTwo"></div>
+                                            </td>
+                                            <td>
+                                                <div id="dayTwoMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
+                                                <div id="dayTwoMin"></div><span class="deg"></span><span class="f"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <div class="day-name"></div>
+                                            </td>
+                                            <td>
+                                                <div id="iconThree"></div>
+                                            </td>
+                                            <td>
+                                                <div id="dayThreeMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
+                                                <div id="dayThreeMin"></div><span class="deg"></span><span class="f"></span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+        
+
+
 
             <div class="col-md-9 no-left-padding">
                 <div class="card new-card margin-bottom invisible" id='subrow-${cardIdx}-0'>
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
+                            <span id="nameOfActivity-0-${cardIdx}"></span> || <span id="addressOfActivity-0-${cardIdx}"></span>
                             <span id="nameOfActivity-0-${cardIdx}"></span>
                             <span id="addressOfActivity-0-${cardIdx}"></span>
                         </h5>
@@ -252,6 +298,7 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
+                            <span id="nameOfActivity-1-${cardIdx}"></span> || <span id="addressOfActivity-1-${cardIdx}"></span>
                             <span id="nameOfActivity-1-${cardIdx}"></span>
                             <span id="addressOfActivity-1-${cardIdx}"></span>
                         </h5>
@@ -326,6 +373,7 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
+                            <span id="nameOfActivity-2-${cardIdx}"></span> || </span><span id="addressOfActivity-2-${cardIdx}"></span>
                             <span id="nameOfActivity-2-${cardIdx}"></span>
                             <span id="addressOfActivity-2-${cardIdx}"></span>
                         </h5>
@@ -423,142 +471,118 @@ connectionsRef.on("value", function(snap) {
 });
 
 
-
 ///////////////////////////////////////// Weather Page2 ////////////////////////////////////
 
-// API Key 36e67cbc7819b260cde6008d38c27bdf  works
-// https://home.openweathermap.org/api_keys
-// Other API Key b8149193e64f315d8b0f4e9a79a3f3bc doen't work as 3AM
-// https://www.youtube.com/watch?v=4UoUqnjUC2c
-// Other API Key 001b0f58045147663b1ea518d34d88b4 works
 
-// When I click the search icon or hit enter after
-// typing a city in the search field, call the 
-// getWeather and getForecast functions.
-$('#submitWeather').click(getWeather);
-//document.querySelector('#submitWeather').addEventlistener('click', getWeather);
-$('#submitWeather').click(getForecast);
-$("#city").keyup(function(hitKey) {
-    if (hitKey.keyCode == "") {
-        $("#submitWeather").click();
-    }
+// https://home.openweathermap.org/api_keys
+// https://www.youtube.com/watch?v=4UoUqnjUC2c
+// API Key 001b0f58045147663b1ea518d34d88b4 works
+
+
+// Gives us degree and F sysmbols
+$('#add-city-button').click(getWeather);
+// document.querySelector('#submitWeather').addEventlistener('click', getWeather);
+// Gives us day, img/icon and tempeture (numbers)
+$('#add-city-button').click(getForecast);
+$('#add-city').keyup(function(hitKey) {
+   if (hitKey.keyCode == "") {
+       $("#add-city-button").click();
+   }
 });
 
 
-
 function getWeather() {
-    var inputString = document.getElementById('city').value;
-    loadWeather(inputString);
+   var inputString = document.getElementById('add-city').value;
+   loadWeather(inputString);
 }
 
 // function to call the API with the city in the input field
-// API Key 36e67cbc7819b260cde6008d38c27bdf
 function loadWeather(searchString) {
-    var requestString = 'https://api.openweathermap.org/data/2.5/weather?q=' +
-        searchString +
-        "&units=imperial&APPID=001b0f58045147663b1ea518d34d88b4";
-    //console.log(requestString) enter city placeholder
-    $.getJSON(requestString, processAPIResults);
+   var requestString = 'https://api.openweathermap.org/data/2.5/weather?q=' +
+       searchString +
+       "&units=imperial&APPID=001b0f58045147663b1ea518d34d88b4";
+   //console.log(requestString) enter city placeholder
+   $.getJSON(requestString, processAPIResults);
 }
 
 // function to post current weather info
 
 function processAPIResults(data) {
-    if (data.name !== undefined) {
+   if (data.name !== undefined) {
 
-        // This part of the function shows Today's data in the top      
-        // to round the temp to a whole number and show the rest of
-        // of the weather info in the current weather section
-        // var roundedTemp = Math.round(data.main.temp);
-        // $('#showTemp').html(roundedTemp);
-        $('.deg').html("&deg");
-        $('.f').html("F");
-        // $('#showMain').html(data.weather[0].main);
-        // $('#humidity').html(data.weather[0].main);
-        // $('#name').html(data.weather[0].main);
-        // console.log(data.weather.main);
-    } else if (data.name == undefined) {
-        console.log(data.name);
-        $("#error").html('City Could Not Be Located');
-    }
+       // This part of the function shows Today's data in the top      
+       // to round the temp to a whole number and show the rest of
+       // of the weather info in the current weather section
+       // var roundedTemp = Math.round(data.main.temp);
+       // $('#showTemp').html(roundedTemp);
+       $('.deg').html("&deg");
+       $('.f').html("F");
+       $(".slash").text(" /");
+
+
+       // console.log(data.weather.main);
+   } else if (data.name == undefined) {
+       console.log(data.name);
+       $("#error").html('City Could Not Be Located');
+   }
 }
 
 // function to call the API with the city in the input field
 
 function getForecast() {
-    var inputString = document.getElementById('city').value;
-    loadForecast(inputString);
+   var inputString = document.getElementById('add-city').value;
+   loadForecast(inputString);
 }
 
 // function to call the forecast API with the city in the
 // input field
 
 function loadForecast(searchString) {
-    var requestString = 'https://api.openweathermap.org/data/2.5/forecast/daily?q=' +
-        searchString +
-        "&units=imperial&APPID=001b0f58045147663b1ea518d34d88b4";
-    console.log(requestString);
-    $.getJSON(requestString, processForecastResults);
+   var requestString = 'https://api.openweathermap.org/data/2.5/forecast/daily?q=' +
+       searchString +
+       "&units=imperial&APPID=001b0f58045147663b1ea518d34d88b4";
+   console.log(requestString);
+   $.getJSON(requestString, processForecastResults);
 }
 
-var dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+var dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'];
 var day = new Date().getDay();
 
-// function to post all the forecast info
+// function to post day of the week
 function processForecastResults(data) {
-    if (data.city.name !== undefined) {
+   if (data.city.name !== undefined) {
+       $('.day-name').text(function(i) {
+           return dayNames[(day + i) % dayNames.length];
+       });
 
-        $('.day-name').text(function(i) {
-
-            return dayNames[(day + +i) % dayNames.length];
-        });
-
-    }
-
-    // $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+   }
 
 
 
-    //day 1 weather icon
-    var iconCodeOne = data.list[1].weather[0].icon;
-    var iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
-    $("#iconOne").html("<img src='" + iconUrlOne + "'>" + data.list[1].weather[0].main);
-    //day 2 weather icon
-    var iconCodeTwo = data.list[2].weather[0].icon;
-    var iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
-    $("#iconTwo").html("<img src='" + iconUrlTwo + "'>" + data.list[1].weather[0].main);
-    //day 3 weather icon
-    var iconCodeThree = data.list[3].weather[0].icon;
-    var iconUrlThree = "http://openweathermap.org/img/w/" + iconCodeThree + ".png";
-    $("#iconThree").html("<img src='" + iconUrlThree + "'>" + data.list[1].weather[0].main);
-    //day 4 weather icon
-    var iconCodeFour = data.list[4].weather[0].icon;
-    var iconUrlFour = "http://openweathermap.org/img/w/" + iconCodeFour + ".png";
-    $("#iconFour").html("<img src='" + iconUrlFour + "'>" + data.list[1].weather[0].main);
-    //day 5 weather icon
-    var iconCodeFive = data.list[5].weather[0].icon;
-    var iconUrlFive = "http://openweathermap.org/img/w/" + iconCodeFive + ".png";
-    $("#iconFive").html("<img src='" + iconUrlFive + "'>" + data.list[1].weather[0].main);
-
-    //day 5 weather icon
-    var iconCodeSix = data.list[6].weather[0].icon;
-    var iconUrlSix = "http://openweathermap.org/img/w/" + iconCodeSix + ".png";
-    $("#iconSix").html("<img src='" + iconUrlSix + "'>" + data.list[1].weather[0].main);
+   //day 1 weather icon
+   var iconCodeOne = data.list[0].weather[0].icon;
+   var iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
+   $("#iconOne").html("<img src='" + iconUrlOne + "'>");
+   //day 2 weather icon
+   var iconCodeTwo = data.list[1].weather[0].icon;
+   var iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
+   $("#iconTwo").html("<img src='" + iconUrlTwo + "'>");
+   //day 3 weather icon
+   var iconCodeThree = data.list[2].weather[0].icon;
+   var iconUrlThree = "http://openweathermap.org/img/w/" + iconCodeThree + ".png";
+   $("#iconThree").html("<img src='" + iconUrlThree + "'>");
 
 
+   //forecast temp highs
+   $('#dayOneMax').html(Math.round(data.list[1].temp.max));
+   $('#dayTwoMax').html(Math.round(data.list[2].temp.max));
+   $('#dayThreeMax').html(Math.round(data.list[3].temp.max));
 
-    //forecast temp highs
-    $('#dayOneMax').html(Math.round(data.list[1].temp.max));
-    $('#dayTwoMax').html(Math.round(data.list[2].temp.max));
-    $('#dayThreeMax').html(Math.round(data.list[3].temp.max));
-    $('#dayFourMax').html(Math.round(data.list[4].temp.max));
-    $('#dayFiveMax').html(Math.round(data.list[5].temp.max));
-    $('#daySixMax').html(Math.round(data.list[6].temp.max));
-    // forecast temp lows
-    $('#dayOneMin').html(Math.round(data.list[1].temp.min));
-    $('#dayTwoMin').html(Math.round(data.list[2].temp.min));
-    $('#dayThreeMin').html(Math.round(data.list[3].temp.min));
-    $('#dayFourMin').html(Math.round(data.list[4].temp.min));
-    $('#dayFiveMin').html(Math.round(data.list[5].temp.min));
-    $('#daySixMin').html(Math.round(data.list[6].temp.min));
+
+   // forecast temp lows
+   $('#dayOneMin').html(Math.round(data.list[1].temp.min));
+   $('#dayTwoMin').html(Math.round(data.list[2].temp.min));
+   $('#dayThreeMin').html(Math.round(data.list[3].temp.min));
+
+
 }
