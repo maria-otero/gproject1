@@ -1,29 +1,28 @@
 header {
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 2.5em;
+    margin-bottom: 1.875em;
 }
-
-
-
-/* font-family: 'Muli', sans-serif;
-font-family: 'Work Sans', sans-serif; */
 
 
 
 body {
-    background: #2a3138 url("../img/background-food-3.png") no-repeat;
+    background: #2a3138 url("../img/background-food-11.png") no-repeat;
     margin: 2% 5% 0% 5%;
     font-family: 'Muli', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
+    font-size: 0.9rem;
     background-size: cover;
+    color: #34170d;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Prata', serif;
-    color: #c09000;
+    font-family: 'Alice', serif;
+    color: #2c1b0a;
 }
 
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
 
 .city-name {
     text-align: center;
@@ -31,22 +30,24 @@ h1, h2, h3, h4, h5, h6 {
 
 label {
     font-family: 'Muli', sans-serif;
-    padding-right: 10px;
-    padding-left: 20px;
+    font-size: 0.9rem;
+    padding-right: 0.625em;
+    padding-left: 1.250em;
 }
 
 nav {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(110, 80, 70, 0.08), 0 6px 20px 0 rgba(110, 80, 70, 0.08);
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1%;
+    color: #34170de1;
+    border-radius: 0.2rem;
     
 }
 
 span {
-    margin-right: 5px;
+    margin-right: 0.313em;
 }
-
 
 input:focus::-webkit-input-placeholder {
     color: transparent;
@@ -63,25 +64,30 @@ form {
 
 
 .form-control {
-    font-size: 13px;
+    font-size: 0.9rem;
 }
 
 .carouImages {
     width: 100%;
-    height: 8em;
+    height: 6.6em;
+}
+
+.img-style {
+    border: 1px solid #34170d58;
+    border-radius: 0.2rem; 
 }
 
 .card {
     /* margin: 15px 8px 15px 8px; */
-    border-radius: 0px;
+    border-radius: 0.2rem;
     width: 100%;
     border: 0px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgba(255, 255, 255, 0.6);
-    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-    padding: 12px;
+    box-shadow: 0 4px 8px 0 rgba(110, 80, 70, 0.08), 0 6px 20px 0 rgba(110, 80, 70, 0.08);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.750em;
     overflow: none;
 }
+
 
 .card-info-box {
     padding: 1em;
@@ -89,9 +95,14 @@ form {
 
 .map {
     width: 100%;
-    height: 560px;
+    height: 28rem;
+    border-radius: 0.2rem;
+    border: 1px solid #34170d58;
 }
 
+.form-control {
+    border: 1px solid #34170d58;
+}
 
 .card-body {
     padding-top: 0%;
@@ -105,8 +116,10 @@ form {
     padding-top: 1rem;
 }
 
-.margin-bottom {
+.places-cards {
     margin-bottom: 0.8em;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .card-body {
@@ -116,12 +129,59 @@ form {
 .card-header {
     background-color: rgba(0,0,0,0);
     border-bottom: none;
-    padding: 0.5rem 1rem;
-    font-family: 'Prata', serif;
+    padding: 0.5rem 0rem;
+    font-family: 'Alice', serif;
+    color: #2c1b0a;
 }
 
 .navbar {
-    padding: 1em;
+    padding: 0.9em;
 }
 
 
+.btn {
+    background-color: none;
+    border: 1px solid #34170d58;
+    color: #34170d;
+
+}
+.btn:hover {
+    background-color: #34170d;
+    border: 1px solid #34170d58;
+    color: #d6a103;
+
+}
+
+.btn:active {
+    background-color: #d6a103;
+    border: 1px solid #34170d58;
+    color: #34170d;
+}
+
+
+@media only screen and (max-width: 1262px) {
+    h5 {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    h6 {
+        font-size: 1.4em;
+    }
+
+    .textBox {
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+    }
+
+    .places-cards {
+        margin-bottom: 0.8em;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .margin-right-little {
+        margin-right: 0.563em;
+    }
+}
