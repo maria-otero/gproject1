@@ -117,6 +117,13 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                 });
 
             });
+            // markerArr[idx].addListener("mouseover", function() {
+            //     var contentString = `<h1>${sortedArr[idx].name}</h1>`
+            //     var infowindow = new google.maps.Infowindow({
+            //         content: contentString
+            //     });
+            //     infowindow.open(contentString);
+            // })
         };
     });
 };
