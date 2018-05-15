@@ -226,7 +226,7 @@ function generateCard() {
                         </h5>
                     </div>  
 
-                    <div class="row">
+                    <div class="row rowAnimate">
                         <div class="col-md-4 textBox">
                             <div class="cardInside">
                                 <div id="carouselExampleControls${cardIdx}-0" class="carousel slide" data-ride="carousel">
@@ -303,7 +303,7 @@ function generateCard() {
                             <span id="addressOfActivity-1-${cardIdx}"></span>
                         </h5>
                     </div>  
-                    <div class="row">
+                    <div class="row rowAnimate">
                         <div class="col-md-4 textBox">
                             <div class="cardInside">
                                 <div id="carouselExampleControls${cardIdx}-1" class="carousel slide" data-ride="carousel">
@@ -378,7 +378,7 @@ function generateCard() {
                             <span id="addressOfActivity-2-${cardIdx}"></span>
                         </h5>
                     </div>  
-                    <div class="row">
+                    <div class="row rowAnimate">
                         <div class="col-md-4 textBox">
                             <div class="cardInside">
                                 <div id="carouselExampleControls${cardIdx}-2" class="carousel slide" data-ride="carousel">

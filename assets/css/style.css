@@ -61,8 +61,13 @@ form {
 
 #add-city-button {
     margin-left: 1em;
+    margin-right: 4em;
 }
 
+#connected-users {
+    font-family: 'Muli', sans-serif;
+    font-size: 0.9rem;
+}
 
 .form-control {
     font-size: 0.9rem;
@@ -78,12 +83,15 @@ form {
     border-radius: 0.2rem; 
 }
 
+.rowAnimate {
+    transition-timing-function: ease;
+}
 .card {
     /* margin: 15px 8px 15px 8px; */
     border-radius: 0.2rem;
     width: 100%;
     border: 0px;
-    box-shadow: 0 4px 8px 0 rgba(110, 80, 70, 0.08), 0 6px 20px 0 rgba(110, 80, 70, 0.08);
+    box-shadow: 0 4px 8px 0 rgba(128, 96, 85, 0.08), 0 6px 20px 0 rgba(110, 80, 70, 0.08);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 0.750em;
     overflow: none;
