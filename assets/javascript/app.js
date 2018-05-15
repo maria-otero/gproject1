@@ -238,7 +238,7 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
-                            <span id="nameOfActivity-1-${cardIdx}">Delete this Title</span><span id="addressOfActivity-1-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                            <span id="nameOfActivity-1-${cardIdx}"></span><span id="addressOfActivity-1-${cardIdx}"></span>
                         </h5>
                     </div>  
                     <div class="row">
@@ -312,7 +312,7 @@ function generateCard() {
                     <div class="card-header">
                         <h5>
                             <i class="fas fa-utensils"></i>
-                            <span id="nameOfActivity-2-${cardIdx}">Delete this Title</span><span id="addressOfActivity-2-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                            <span id="nameOfActivity-2-${cardIdx}"></span><span id="addressOfActivity-2-${cardIdx}"></span>
                         </h5>
                     </div>  
                     <div class="row">
