@@ -90,6 +90,10 @@ form {
     margin-bottom: 0.6em;
 }
 
+.odd-card {
+    background-color: rgb(76, 25, 25, 0.5);
+}
+
 .cardInside {
     overflow: auto;
 }
@@ -202,6 +206,7 @@ form {
     font-family: 'Alice', serif;
     color: #2c1b0a;
 }
+
 
 @media only screen and (max-width: 1262px) {
     h5 {
