@@ -1,10 +1,24 @@
+//INITIALIZE FIREBASE
+var config = {
+    apiKey: "AIzaSyB_cQlyfp-ABaVnXi9PtFUnScHpnhufX2c",
+    authDomain: "groupproject1-251ef.firebaseapp.com",
+    databaseURL: "https://groupproject1-251ef.firebaseio.com",
+    projectId: "groupproject1-251ef",
+    storageBucket: "",
+    messagingSenderId: "1068697721432"
+  };
+  firebase.initializeApp(config);
+
+var database = firebase.database();
+
+//CREATING DOM VARS
 var cardIdx = 0;
 var cityInput, activityInput, distanceInput, starInput;
 
 //DYNAMICALLY EMBEDDING MAPS
 $('#add-city-button').on('click', function(event) {
     event.preventDefault();
-    $("header").slideUp(400);
+    // $("header").slideUp(400);
     //FORMATTING USERINPUT
     cityInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
     // $('#add-city').val('');
@@ -146,16 +160,14 @@ function generateCard() {
     <div class="container">
 
         <div class="row">
-            <div class="col-md-3 no-left-padding ">
+            <div class="col-md-3 no-left-padding">
                 <div class="card border-primary mb-3" style="max-width: 18rem;">
 
                     <div class="card-header city-name">    
-                        <i class="far fa-map"></i>
-                        <span id="city-name">${cityInput}.</span>
-                        <span id='activity-name'>${activityInput}</span>
+                        <span id="city-name"><h4>${cityInput}</h4></span>
                     </div>
                         <div class="card-body text-primary">
-                        <div class='map' id="newMap"></div>
+                        <div class="map" id="newMap"></div>
                     </div>
                 </div>
             </div>
@@ -163,46 +175,48 @@ function generateCard() {
             <div class="col-md-9 no-left-padding">
                 <div class="card margin-bottom invisible" id='subrow-${cardIdx}-0'>
                     <div class="card-header">
-                        <i class="fas fa-map-pin"></i>
-                        <span id="nameOfActivity-0-${cardIdx}">Delete this Title</span>
-                        <span id="addressOfActivity-0-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
-                        <button id='likeButton-0-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
+                        <h5>
+                            <i class="fas fa-utensils"></i>
+                            <span id="nameOfActivity-0-${cardIdx}"></span>
+                            <span id="addressOfActivity-0-${cardIdx}"></span>
+                            <button id='likeButton-0-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
+                        </h5>
                     </div>  
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 textBox">
                             <div class="cardInside">
                                 <div id="carouselExampleControls${cardIdx}-0" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item carouImages active">
-                                            <img id="img-accommodation-0-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-1.jpeg" alt="First slide">
+                                            <img id="img-accommodation-0-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="First slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-1-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-2.jpeg" alt="Second slide">
+                                            <img id="img-accommodation-1-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Second slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-2-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-2-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-3-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-3-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-4-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-4-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-5-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-5-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-6-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-6-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-7-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-7-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-8-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-8-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-9-${cardIdx}-0" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-9-${cardIdx}-0" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}-0" role="button" data-slide="prev">
@@ -217,18 +231,17 @@ function generateCard() {
                             </div>
                         </div>
 
-                        <div class="col-md-2 top-padding">
+                        <div class="col-md-2 textBox">
                             <div class="cardInside">
-                                <p>Type: <span id="typeOfPlace-${cardIdx}-0"></span></p>
-                                <p>Price: <span id="priceOfPlace-${cardIdx}-0">N/A</span></p>
-                                <p>Rating: <span id="ratingOfPlace-${cardIdx}-0"></span></p>
+                                <p><strong>Price </strong><span id="priceOfPlace-${cardIdx}-0">N/A</span></p>
+                                <p><strong>Rating </strong><span id="ratingOfPlace-${cardIdx}-0"></span></p>
                             </div>
                         </div>
 
-                        <div class="col-md-6 top-padding">
+                        <div class="col-md-6 textBox">
                             <div class="cardInside">
-                                <p>Reviewer: <span id="reviewer-${cardIdx}-0"></span>gave this place <span id="reviewerRated-${cardIdx}-0"></span>stars</p>
-                                <p>"<span id="reviewResult-${cardIdx}-0"></span>"</p>
+                                <p><strong>Reviewer </strong><span id="reviewer-${cardIdx}-0"></span>gave this place <span id="reviewerRated-${cardIdx}-0"></span>stars</p>
+                                <p class="reviewBox" id="reviewResult-${cardIdx}-0"></p>
                             </div>
                         </div>
                         </div>
@@ -240,45 +253,47 @@ function generateCard() {
 
                     <div class="card margin-bottom invisible" id='subrow-${cardIdx}-1'>
                     <div class="card-header">
-                        <i class="fas fa-map-pin"></i>
-                        <span id="nameOfActivity-1-${cardIdx}">Delete this Title</span>
-                        <span id="addressOfActivity-1-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
-                        <button id='likeButton-1-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
+                        <h5>
+                            <i class="fas fa-utensils"></i>
+                            <span id="nameOfActivity-1-${cardIdx}">Delete this Title</span>
+                            <span id="addressOfActivity-1-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                            <button id='likeButton-1-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
+                        </h5>
                     </div>  
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 textBox">
                             <div class="cardInside">
                                 <div id="carouselExampleControls${cardIdx}-1" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item carouImages active">
-                                            <img id="img-accommodation-0-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-1.jpeg" alt="First slide">
+                                            <img id="img-accommodation-0-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="First slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-1-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-2.jpeg" alt="Second slide">
+                                            <img id="img-accommodation-1-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Second slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-2-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-2-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-3-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-3-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-4-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-4-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-5-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-5-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-6-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-6-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-7-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-7-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-8-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-8-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-9-${cardIdx}-1" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-9-${cardIdx}-1" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}-1" role="button" data-slide="prev">
@@ -293,18 +308,17 @@ function generateCard() {
                             </div>
                         </div>
 
-                        <div class="col-md-2 top-padding">
+                        <div class="col-md-2 textBox">
                             <div class="cardInside">
-                                <p>Type: <span id="typeOfPlace-${cardIdx}-1"></span></p>
-                                <p>Price: <span id="priceOfPlace-${cardIdx}-1">N/A</span></p>
-                                <p>Rating: <span id="ratingOfPlace-${cardIdx}-1"></span></p>
+                                <p><strong>Price  </strong><span id="priceOfPlace-${cardIdx}-1">N/A</span></p>
+                                <p><strong>Rating </strong><span id="ratingOfPlace-${cardIdx}-1"></span></p>
                             </div>
                         </div>
 
-                        <div class="col-md-6 top-padding">
+                        <div class="col-md-6 textBox">
                             <div class="cardInside">
-                                <p>Reviewer: <span id="reviewer-${cardIdx}-1"></span>gave this place <span id="reviewerRated-${cardIdx}-1"></span>stars</p>
-                                <p>"<span id="reviewResult-${cardIdx}-1"></span>"</p>
+                                <p><strong>Reviewer </strong><span id="reviewer-${cardIdx}-1"></span>gave this place <span id="reviewerRated-${cardIdx}-1"></span>stars</p>
+                                <p class="reviewBox" id="reviewResult-${cardIdx}-1"></p>
                             </div>
                         </div>
                         </div>
@@ -314,45 +328,47 @@ function generateCard() {
 
                     <div class="card margin-bottom invisible" id='subrow-${cardIdx}-2'>
                     <div class="card-header">
-                        <i class="fas fa-map-pin"></i>
-                        <span id="nameOfActivity-2-${cardIdx}">Delete this Title</span>
-                        <span id="addressOfActivity-2-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
-                        <button id='likeButton-2-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
+                        <h5>
+                            <i class="fas fa-utensils"></i>
+                            <span id="nameOfActivity-2-${cardIdx}">Delete this Title</span>
+                            <span id="addressOfActivity-2-${cardIdx}">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                            <button id='likeButton-2-${cardIdx}' class="btn btn-primary btn-sm like-button">Click here to like this!</button>
+                        </h5>
                     </div>  
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 textBox">
                             <div class="cardInside">
                                 <div id="carouselExampleControls${cardIdx}-2" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item carouImages active">
-                                            <img id="img-accommodation-0-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-1.jpeg" alt="First slide">
+                                            <img id="img-accommodation-0-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="First slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-1-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-2.jpeg" alt="Second slide">
+                                            <img id="img-accommodation-1-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Second slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-2-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-2-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-3-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-3-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-4-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-4-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-5-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-5-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-6-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-6-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-7-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-7-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-8-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-8-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                         <div class="carousel-item carouImages">
-                                            <img id="img-accommodation-9-${cardIdx}-2" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                            <img id="img-accommodation-9-${cardIdx}-2" class="d-block w-100 img-style" src="assets/img/placeholder.png" alt="Third slide">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}-2" role="button" data-slide="prev">
@@ -367,18 +383,17 @@ function generateCard() {
                             </div>
                         </div>
 
-                        <div class="col-md-2 top-padding">
+                        <div class="col-md-2 textBox">
                             <div class="cardInside">
-                                <p>Type: <span id="typeOfPlace-${cardIdx}-2"></span></p>
-                                <p>Price: <span id="priceOfPlace-${cardIdx}-2">N/A</span></p>
-                                <p>Rating: <span id="ratingOfPlace-${cardIdx}-2"></span></p>
+                                <p><strong>Price </strong><span id="priceOfPlace-${cardIdx}-2">N/A</span></p>
+                                <p><strong>Rating </strong><span id="ratingOfPlace-${cardIdx}-2"></span></p>
                             </div>
                         </div>
 
-                        <div class="col-md-6 top-padding">
+                        <div class="col-md-6 textBox">
                             <div class="cardInside">
-                                <p>Reviewer: <span id="reviewer-${cardIdx}-2"></span>gave this place <span id="reviewerRated-${cardIdx}-2"></span>stars</p>
-                                <p>"<span id="reviewResult-${cardIdx}-2"></span>"</p>
+                                <p><strong>Reviewer </strong><span id="reviewer-${cardIdx}-2"></span>gave this place <span id="reviewerRated-${cardIdx}-2"></span>stars</p>
+                                <p class="reviewBox" id="reviewResult-${cardIdx}-2"></p>
                             </div>
                         </div>
                         </div>
@@ -399,6 +414,7 @@ function generateCard() {
     $('#bodyRow').append(newCard);
 }
 
+//LIKE BUTTON CLICK LISTENER SETTING TO FIREBASE
 $(document).on('click', '.like-button', function() {
     console.log(this)
 })
