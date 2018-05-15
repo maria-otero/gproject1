@@ -125,94 +125,94 @@ function initMap(centerLat, centerLng) {//CREATING MAP
 function generateCard() {
     var newCard = $(`
     <div class="container">
+
         <div class="row">
-             <!-- <div class="col-md-12"> -->
-                <div class="col-md-3">
-                    <div class="card border-primary mb-3" style="max-width: 18rem;">
-  
-                        <div class="card-body text-primary">
-                            <h5> 
-                                <span id="city-name">${cityInput}</span>
-                                <span id='activity-name'>${activityInput}</span>
-                            </h5>
-                            <div class='map' id="newMap"></div>
-                        </div>
+            <div class="col-md-3">
+                <div class="card border-primary mb-3" style="max-width: 18rem;">
+
+                    <div class="card-body text-primary">
+                        <h5> 
+                            <span id="city-name">${cityInput}</span>
+                            <span id='activity-name'>${activityInput}</span>
+                        </h5>
+                        <div class='map' id="newMap"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-9">
-                        <div class="card">
-                                <div class="card-header"><span id="nameOfActivity">Delete this Title</span><span id="addressOfActivity">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
-                                </div>  
-                            <!-- Results displayed row -->
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="cardInside">
-                                            <div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel">
-                                                    <div class="carousel-inner">
-                                                        <div class="carousel-item carouImages active">
-                                                            <img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-1.jpeg" alt="First slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-2.jpeg" alt="Second slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                        <div class="carousel-item carouImages">
-                                                            <img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
-                                                        </div>
-                                                    </div>
-                                                    <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev">
-                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </a>
-                                                    <a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next">
-                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                        <span class="sr-only">Next</span>
-                                                    </a>
-                                                </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <span id="nameOfActivity">Delete this Title</span><span id="addressOfActivity">Delete this address: 123 Whaling Way, Long Beach, California 90803</span>
+                    </div>  
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="cardInside">
+                                <div id="carouselExampleControls${cardIdx}" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item carouImages active">
+                                            <img id="img-accommodation-0-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-1.jpeg" alt="First slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-1-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-2.jpeg" alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-2-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-3-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-4-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-5-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-6-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-7-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-8-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item carouImages">
+                                            <img id="img-accommodation-9-${cardIdx}" class="d-block w-100" src="gproject1/assets/img/hotel-3.jpeg" alt="Third slide">
+                                        </div>
                                     </div>
+                                    
+                                    <a class="carousel-control-prev" href="#carouselExampleControls${cardIdx}" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                     </a>
+                                    <a class="carousel-control-next" href="#carouselExampleControls${cardIdx}" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
-
-                                <div class="col-md-2">
-                                    <div class="cardInside">
-                                       <p>Type: <span id="typeOfPlace"></span></p>
-                                       <p>Price: <span id="priceOfPlace"></span></p>
-                                       <p>Ratng: <span id="ratingOfPlace"></span></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="cardInside">
-                                        <p>Reviewer: <span id="reviewer1"></span></p>
-                                        <p>Rated: <span id="reviewerRated"></span></p>
-                                        <p><span id="reviewResult"></span></p>
-                                    </div>
-                                </div>
-
                             </div>
+                        </div>
 
+                        <div class="col-md-2">
+                            <div class="cardInside">
+                                <p>Type: <span id="typeOfPlace"></span></p>
+                                <p>Price: <span id="priceOfPlace"></span></p>
+                                <p>Ratng: <span id="ratingOfPlace"></span></p>
+                            </div>
+                        </div>
 
-                        </div>    
+                        <div class="col-md-6">
+                            <div class="cardInside">
+                                <p>Reviewer: <span id="reviewer1"></span></p>
+                                <p>Rated: <span id="reviewerRated"></span></p>
+                                <p><span id="reviewResult"></span></p>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>
