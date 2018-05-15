@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+<div class="container wholeContainer">
     <!-- Title -->
     <header>
         <h2 id="page-title">Hi traveler,</h2>
@@ -29,34 +29,38 @@
     </header>
 
     <!-- Nav Bar - Destination input - Budget input - Star raitin input -->
-    <nav id="navbar-info" class="navbar">
-        <form class="form-inline">
-            <!-- Choce a place -->
-            <label>City: </label>
-            
-            <input id="add-city" class="form-control mr-sm-2" type="search" placeholder="Long Beach" aria-label="Search">
-            <!-- <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button> -->
-            <!-- Define item -->
-            <label>Activity: </label>
-            <input id="add-item" class="form-control mr-sm-2" type="search" placeholder="Whale Watching" aria-label="Search">
-            <!-- <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button> -->
-            <div class="form-group">
-                <label for="distanceSelector">Range:</label>
-                <select class="form-control" id="distanceSelector">
-                    <option>2.5 miles</option>
-                    <option>5 miles</option>
-                    <option>7.5 miles</option>
-                    <option>10 miles</option>
-                    <option>12.5 miles</option>
-                    <option>15 miles</option>
-                </select>
-            </div>
-            
-            <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
-        </form>
-    </nav>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav id="navbar-info" class="navbar">
+                <form class="form-inline">
+                    <!-- Choce a place -->
+                    <label>City: </label>
+                    
+                    <input id="add-city" class="form-control mr-sm-2" type="search" placeholder="Long Beach" aria-label="Search">
+                    <!-- <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button> -->
+                    <!-- Define item -->
+                    <label>Activity: </label>
+                    <input id="add-item" class="form-control mr-sm-2" type="search" placeholder="Whale Watching" aria-label="Search">
+                    <!-- <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button> -->
+                    <div class="form-group">
+                        <label for="distanceSelector">Range:</label>
+                        <select class="form-control" id="distanceSelector">
+                            <option>2.5 miles</option>
+                            <option>5 miles</option>
+                            <option>7.5 miles</option>
+                            <option>10 miles</option>
+                            <option>12.5 miles</option>
+                            <option>15 miles</option>
+                        </select>
+                    </div>
+                    
+                    <button id="add-city-button" class="btn btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
+                </form>
+            </nav>
+        </div>
+    </div>
+</div>
     <!-- Body -->
 
 
@@ -65,7 +69,7 @@
         </div>
     </div>
 
-
+</div>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&libraries=places"></script>
 
     <script src='assets/javascript/app.js'></script>
