@@ -3,8 +3,6 @@ header {
     margin-bottom: 1.875em;
 }
 
-
-
 body {
     background: #2a3138 url("../img/background-food-11.png") no-repeat;
     margin: 2% 5% 0% 5%;
@@ -12,6 +10,13 @@ body {
     font-size: 0.9rem;
     background-size: cover;
     color: #34170d;
+}
+
+.logo {
+    float: right;
+    padding-right: 1em;
+    height: 6.1em;
+    width: 9.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,7 +48,6 @@ nav {
     margin-bottom: 1%;
     color: #34170de1;
     border-radius: 0.2rem;
-    
 }
 
 span {
@@ -86,8 +90,8 @@ form {
 .rowAnimate {
     transition-timing-function: ease;
 }
+
 .card {
-    /* margin: 15px 8px 15px 8px; */
     border-radius: 0.2rem;
     width: 100%;
     border: 0px;
@@ -155,7 +159,6 @@ form {
 .navbar {
     padding: 0.9em;
 }
-
 
 .btn {
     background-color: none;

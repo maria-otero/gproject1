@@ -176,51 +176,51 @@ function generateCard() {
 
                     <div class="card-header city-name">    
                         <span id="city-name"><h5>${cityInput}, ${activityInput}</h5></span>
-                     </div>
-                        <div class="card-body text-primary">
-                            <div class="map" id="newMap"></div>
-                                <table>
-                                
-                                    <tbody>
-                                        <tr>
-                                            <td scope="row">
-                                                <div class="day-name"></div>
-                                            </td>
-                                            <td>
-                                                <div id="iconOne"></div>
-                                            </td>
-                                            <td>
-                                                <div id="dayOneMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
-                                                <div id="dayOneMin"></div><span class="deg"></span><span class="f"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">
-                                                <div class="day-name"></div>
-                                            </td>
-                
-                                            <td>
-                                                <div id="iconTwo"></div>
-                                            </td>
-                                            <td>
-                                                <div id="dayTwoMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
-                                                <div id="dayTwoMin"></div><span class="deg"></span><span class="f"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">
-                                                <div class="day-name"></div>
-                                            </td>
-                                            <td>
-                                                <div id="iconThree"></div>
-                                            </td>
-                                            <td>
-                                                <div id="dayThreeMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
-                                                <div id="dayThreeMin"></div><span class="deg"></span><span class="f"></span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    </div>
+
+                    <div class="card-body text-primary">
+                        <div class="map" id="newMap"></div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">
+                                            <div class="day-name"></div>
+                                        </td>
+                                        <td>
+                                            <div id="iconOne"></div>
+                                        </td>
+                                        <td>
+                                            <div id="dayOneMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
+                                            <div id="dayOneMin"></div><span class="deg"></span><span class="f"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <div class="day-name"></div>
+                                        </td>
+            
+                                        <td>
+                                            <div id="iconTwo"></div>
+                                        </td>
+                                        <td>
+                                            <div id="dayTwoMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
+                                            <div id="dayTwoMin"></div><span class="deg"></span><span class="f"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <div class="day-name"></div>
+                                        </td>
+                                        <td>
+                                            <div id="iconThree"></div>
+                                        </td>
+                                        <td>
+                                            <div id="dayThreeMax"></div><span class="deg"></span><span class="f"></span><span class=" slash"></span>
+                                            <div id="dayThreeMin"></div><span class="deg"></span><span class="f"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -304,9 +304,6 @@ function generateCard() {
 
                     </div>  
                     
-
-
-
                     <div class="card new-card margin-bottom invisible" id='subrow-${cardIdx}-1'>
                     <div class="card-header">
                         <h5>
@@ -381,7 +378,6 @@ function generateCard() {
 
                     </div>  
 
-
                     <div class="card new-card margin-bottom invisible" id='subrow-${cardIdx}-2'>
                     <div class="card-header">
                         <h5>
@@ -453,16 +449,9 @@ function generateCard() {
                             </div>
                         </div>
                         </div>
-
                     </div>  
-
-
-
-                    
                 </div>
             </div>
-            
-
         </div>
     </div>
 `);
@@ -485,7 +474,7 @@ connectionsRef.on("value", function(snap) {
 });
 
 
-///////////////////////////////////////// Weather Page2 ////////////////////////////////////
+///////////////////////////////////////// Weather ////////////////////////////////////
 
 
 // https://home.openweathermap.org/api_keys

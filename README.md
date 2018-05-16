@@ -1,4 +1,4 @@
-# Foodie Finds Food
+# Food Route
 
 ## Overview
 
@@ -42,10 +42,14 @@ Created with foodies in mind, this tool provides comparison between all the top 
 ## Future Developments
 
 - Speeding up the Ajax calls from Google API's are a large priority.
+- Automatically displaying the top 3 results in the initial card generation.
+    - Users can then close any of the results and a new one will append to the bottom.
+    - Will also prevent users from accidentally opening the same markers.
+- Converting the integer rating system into dollar signs $-$$$$.
+- Markers will display a modal or infowindow with the name and an option for directions from Google Maps.
 - Using a new database (not Google Firebase) that is relational so we can save user data and allow "favoriting" and "liking" restaurants. This will allow users to remember what their favorite restaurants are and see how popular searched restaurants are.
 - Connecting users with more information on a restaurant via another API, may it be tripadvisor, yelp, or expedia.
-- Color coating generated cards for better user experience.
-- Expand the application from the food theme, to other themes; i.e. adventure activites and accommodations.
+- Expand the application from the food theme, to other themes; i.e. adventure activities and accommodations.
 
 ## Techonologies
 
