@@ -574,15 +574,15 @@ function processForecastResults(data) {
 
 
    //forecast temp highs
-   $('#dayOneMax').html(Math.round(data.list[1].temp.max));
-   $('#dayTwoMax').html(Math.round(data.list[2].temp.max));
-   $('#dayThreeMax').html(Math.round(data.list[3].temp.max));
+   $('#dayOneMax').html(Math.round(data.list[0].temp.max));
+   $('#dayTwoMax').html(Math.round(data.list[1].temp.max));
+   $('#dayThreeMax').html(Math.round(data.list[2].temp.max));
 
 
    // forecast temp lows
-   $('#dayOneMin').html(Math.round(data.list[1].temp.min));
-   $('#dayTwoMin').html(Math.round(data.list[2].temp.min));
-   $('#dayThreeMin').html(Math.round(data.list[3].temp.min));
+   $('#dayOneMin').html(Math.round(data.list[0].temp.min));
+   $('#dayTwoMin').html(Math.round(data.list[1].temp.min));
+   $('#dayThreeMin').html(Math.round(data.list[2].temp.min));
 
 
 }

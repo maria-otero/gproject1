@@ -5,17 +5,17 @@
 Created with foodies in mind, this tool provides comparison between all the top rated restaurants in the user's search parameters. Users are presented with 3 different search parameters: city, cuisine, and distance. Users fill in all the parameters and the tool generates a map with markers containing the top 5 restaurants based on cuisine. Increasing the search radius will include more searches, but will always display the top 5 restaurants only. The current weather will be displayed under the map as well. Once the list has been generated, users can see condensed information on each restaurant, as well as pictures provided by Google Photoreference. Users can see how many people are concurrently using the webpage.
 
 * * *
-![Foodie Finds Food](#)
+![Foodie Finds Food](https://cdn.discordapp.com/attachments/446103300069392385/446104605890183189/unknown.png)
 
 ## Process
 
 - The user is given a set of instructions at the top of the screen.
 - Users input their city, desired cuisine, and radius of search.
     - By default, radius of search is 2.5 miles.
-    ![Navbar](#)
+    ![Navbar](https://cdn.discordapp.com/attachments/446103300069392385/446103316045234186/unknown.png)
 - Upon search, multiple Google API calls will generate a map with markers, as well as populate a dynamically created card with the top 5 restaurants serving the desired cuisine.
 - A weather API will provide temperature and status of the weather by location.
-    ![map generation](#)
+    ![map generation](https://cdn.discordapp.com/attachments/446103300069392385/446103867684290578/unknown.png)
 - The newly created card will have more detailed information on each restaurant that was populated including:
     - Name
     - Address
@@ -24,7 +24,7 @@ Created with foodies in mind, this tool provides comparison between all the top 
     - Rating
     - Most recent reviewer and the review rating
     - Exerpt of review
-    ![card generation](#)
+    ![card generation](https://cdn.discordapp.com/attachments/446103300069392385/446104283621097482/unknown.png)
 
 ## Challenges
 
