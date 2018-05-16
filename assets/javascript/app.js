@@ -18,14 +18,12 @@ var cityInput, activityInput, distanceInput, starInput;
 //DYNAMICALLY EMBEDDING MAPS
 $('#add-city-button').on('click', function(event) {
     event.preventDefault();
-    // $("header").slideUp(400);
     //FORMATTING USERINPUT
     cityInput = $('#add-city').val().charAt(0).toUpperCase() + $('#add-city').val().substr(1).toLowerCase();
-    // $('#add-city').val('');
     activityInput = $('#add-item').val();
-    // $('#add-item').val('');
     distanceInput = $('#distanceSelector').val();
-    switch(distanceInput) { //CONVERTING MILES TO METERS
+    //CONVERTING MILES TO METERS
+    switch(distanceInput) { 
         case '2.5 miles':
             distanceInput = '4000';
             break;
@@ -54,10 +52,12 @@ $('#add-city-button').on('click', function(event) {
     $('.new-card').removeClass('new-card');
 
     var locLat, locLng;
-    $.ajax({//LOOKING UP CITY LAT/LONG
+    //LOOKING UP CITY LAT/LONG
+    $.ajax({
         url: `https://maps.googleapis.com/maps/api/geocode/json?address=${cityInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
         method: 'GET'
     }).then(function(response) {
+        //SETTING LAT/LONG
         centerLat = response.results[0].geometry.location.lat;
         centerLng = response.results[0].geometry.location.lng;
         initMap(centerLat, centerLng);
@@ -65,14 +65,16 @@ $('#add-city-button').on('click', function(event) {
     cardIdx++;
 })
 
-function initMap(centerLat, centerLng) {//CREATING MAP
+//CREATING MAP
+function initMap(centerLat, centerLng) {
     var map;
     var centerLatlng = { lat: centerLat, lng: centerLng };
     map = new google.maps.Map(document.getElementById('newMap'), {
         zoom: 12,
         center: centerLatlng
     });
-    switch(distanceInput) { //SETTING MAP ZOOM
+    //SETTING MAP ZOOM
+    switch(distanceInput) { 
         case '4000':
             map.zoom = 11;
             break;
@@ -94,12 +96,15 @@ function initMap(centerLat, centerLng) {//CREATING MAP
     }
 
     $('#newMap').attr('id', 'map' + cardIdx)
+
+    //SEARCHING FOR MATCHES NEAR CENTER
     var queryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=${distanceInput}&keyword=${activityInput}&location=${centerLat},${centerLng}`
-    $.ajax({//SEARCHING FOR MATCHES NEAR CENTER
+    $.ajax({
         url: queryURL,
         method: 'GET'
-    }).then(function(response) {//PLACING MARKERS
-        
+    }).then(function(response) {
+        //PLACING MARKERS
+
         //SORTING FOR TOP 5 RATED
         response.results.sort(function(a, b) {
             return a.rating - b.rating;
@@ -120,16 +125,22 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                 cardCreationIdx: cardIdx-1,
                 placeId: sortedArr[idx].place_id
             });
-            markerArr[idx].addListener('click', function() {//MARKER CLICK LISTENING AND SUBROW CREATION
+
+            //MARKER CLICK LISTENING AND SUBROW CREATION
+            markerArr[idx].addListener('click', function() {
                 $(`#subrow-${this.cardCreationIdx}-${subrowIdx}`).removeClass('invisible');
                 $(`#nameOfActivity-${subrowIdx}-${this.cardCreationIdx}`).text(sortedArr[idx].name);//updated5/15
                 // var activityName = sortedArr[idx].name;
                 // $(`#likeButton-${subrowIdx}-${this.cardCreationIdx}`).attr('name-data', activityName)
                 var listenerCardIdx = this.cardCreationIdx;
-                $.ajax({//GETTING PLACE DETAILS AND PHOTOREFS
+
+                //GETTING PLACE DETAILS AND PHOTOREFS
+                $.ajax({
                     method: 'GET',
                     url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
-                }).then (function(snapshot){//PUSHING MORE SUBROW DETAILS
+                }).then (function(snapshot){
+                    //PUSHING MORE SUBROW DETAILS
+
                     // console.log(snapshot);
                     $(`#addressOfActivity-${subrowIdx}-${listenerCardIdx}`).text(snapshot.result.formatted_address);
                     $(`#priceOfPlace-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.price_level);
@@ -138,6 +149,8 @@ function initMap(centerLat, centerLng) {//CREATING MAP
                     $(`#reviewer-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.reviews[reviewerPick].author_name)
                     $(`#reviewerRated-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.reviews[reviewerPick].rating)
                     $(`#reviewResult-${listenerCardIdx}-${subrowIdx}`).text(snapshot.result.reviews[reviewerPick].text)
+                    
+                    //FORLOOP TO GET PHOTORERFERENCES
                     for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
                         var photoReference = snapshot.result.photos[photoIdx].photo_reference;
                         var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
@@ -453,10 +466,11 @@ function generateCard() {
         </div>
     </div>
 `);
+    //APPEND NEW CARD TO HOOK IN HTML
     $('#bodyRow').prepend(newCard);
 };
 
-//LIKE BUTTON CLICK LISTENER SETTING TO FIREBASE
+//PRESENT USERS LISTENER SETTING TO FIREBASE
 var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
 connectedRef.on("value", function(snap) {
