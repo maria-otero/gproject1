@@ -55,23 +55,23 @@ Created with foodies in mind, this tool provides comparison between all the top 
 
 ### API's
 
-- Google Maps API - [googlemaps API](https://developers.google.com/maps/documentation/javascript/tutorial)
-- Google Geocoding API - [googlegeocoding API](https://developers.google.com/maps/documentation/geocoding/start)
-- Google Places API - [googleplaces API](https://developers.google.com/places/web-service/intro)
-- Openweathermap - [openweathermap API](https://openweathermap.org/api)
+- Google Maps API - [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
+- Google Geocoding API - [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
+- Google Places API - [GOogle Places API](https://developers.google.com/places/web-service/intro)
+- Openweathermap - [Openweathermap API](https://openweathermap.org/api)
 
 ### CDN Used
 
 - Bootstrap v4.1.0 - [getbootstrap](https://getbootstrap.com/)
 - jQuery v3.3.1 (uncompressed) - [jQuery core](https://code.jquery.com/)
-- FontAwesome v4.7 - [font awesome](https://fontawesome.com/get-started)
-- Google Fonts - [googlefonts](https://fonts.google.com/)
+- FontAwesome v4.7 - [Font Awesome](https://fontawesome.com/get-started)
+- Google Fonts - [Google Fonts](https://fonts.google.com/)
 
 
 ### Applications
 
-- Adobe Photoshop v15.0.0 - [adobe photoshop](https://www.adobe.com/products/photoshopfamily.html)
-- Adobe Illustrator v19.2.0 - [adobe illustrator](https://www.adobe.com/products/illustrator.html)
+- Adobe Photoshop v15.0.0 - [Adobe Photoshop](https://www.adobe.com/products/photoshopfamily.html)
+- Adobe Illustrator v19.2.0 - [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
 
 ### Database
 
