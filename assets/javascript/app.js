@@ -552,7 +552,7 @@ var day = new Date().getDay();
 function processForecastResults(data) {
    if (data.city.name !== undefined) {
        $('.day-name').text(function(i) {
-           return dayNames[(day + i) % dayNames.length];
+           return dayNames[(day + (i % 3)) % dayNames.length];
        });
 
    }
