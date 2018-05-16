@@ -32,6 +32,8 @@ p {
 
 .city-name {
     text-align: center;
+    margin-top: -1.65em;
+    margin-bottom: -1.7em;
 }
 
 label {
@@ -218,6 +220,10 @@ form {
     color: #2c1b0a;
 }
 
+.f, .deg, .slash {
+    font-family: 'Alice', serif;
+    color: #2c1b0a;
+}
 
 @media only screen and (max-width: 1262px) {
     h5 {
