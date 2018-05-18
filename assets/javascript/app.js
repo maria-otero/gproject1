@@ -98,7 +98,7 @@ function initMap(centerLat, centerLng) {
     $('#newMap').attr('id', 'map' + cardIdx)
 
     //SEARCHING FOR MATCHES NEAR CENTER
-    var queryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo&radius=${distanceInput}&keyword=${activityInput}&location=${centerLat},${centerLng}`
+    var queryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=[API KEY]&radius=${distanceInput}&keyword=${activityInput}&location=${centerLat},${centerLng}`
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -137,7 +137,7 @@ function initMap(centerLat, centerLng) {
                 //GETTING PLACE DETAILS AND PHOTOREFS
                 $.ajax({
                     method: 'GET',
-                    url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`
+                    url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${this.placeId}&key=[API KEY]`
                 }).then (function(snapshot){
                     //PUSHING MORE SUBROW DETAILS
 
@@ -153,7 +153,7 @@ function initMap(centerLat, centerLng) {
                     //FORLOOP TO GET PHOTORERFERENCES
                     for (var photoIdx = 0; photoIdx < 10; photoIdx++) {
                         var photoReference = snapshot.result.photos[photoIdx].photo_reference;
-                        var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`;
+                        var photoQueryURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${photoReference}&key=[API KEY]`;
                         $(`#img-accommodation-${photoIdx}-${listenerCardIdx}-${subrowIdx}`).attr("src", photoQueryURL);
                     };
                     subrowIdx++; //ITERATING TO HIT NEW SUBROW
