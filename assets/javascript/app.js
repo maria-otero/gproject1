@@ -54,7 +54,7 @@ $('#add-city-button').on('click', function(event) {
     var locLat, locLng;
     //LOOKING UP CITY LAT/LONG
     $.ajax({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${cityInput}&key=AIzaSyBEL_ixBbgLQWdqBAVuH5Ibs-WTuYdjhqo`,
+        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${cityInput}&key=[API KEY]`,
         method: 'GET'
     }).then(function(response) {
         //SETTING LAT/LONG
